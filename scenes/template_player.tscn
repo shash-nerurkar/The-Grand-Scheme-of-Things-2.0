@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/template_player.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/lantern.tscn" type="PackedScene" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.5
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[node name="template_player" type="KinematicBody2D" groups=[
+"player",
+]]
+position = Vector2( 40.0832, 514.795 )
+script = ExtResource( 1 )
+
+[node name="maratha" type="AnimatedSprite" parent="."]
+position = Vector2( 1.993, 1.16254 )
+scale = Vector2( 0.4, 0.8 )
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+position = Vector2( -1.5811, -1.05408 )
+polygon = PoolVector2Array( -10.1628, -23.3636, -0.51799, -23.7299, 15.109, -14.3292, 16.452, -1.38812, 21.7017, 2.27448, 22.6783, 24.8604, 8.39428, 28.4009, -1.49468, 28.645, -3.44806, 3.61743, -4.42474, -15.0617, -9.55235, -20.3115 )
+
+[node name="camera" type="Camera2D" parent="."]
+current = true
+
+[node name="lantern" parent="." instance=ExtResource( 8 )]
+position = Vector2( 14.6877, 11.5464 )
+frame = 2

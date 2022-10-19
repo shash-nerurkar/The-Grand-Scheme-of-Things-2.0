@@ -1,0 +1,232 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/KeySelection.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ActionList.gd" type="Script" id=3]
+[ext_resource path="res://scripts/InputMapper.gd" type="Script" id=4]
+[ext_resource path="res://scripts/control_config.gd" type="Script" id=5]
+[ext_resource path="res://art/HUD assets/character_selection_panel.png" type="Texture" id=6]
+[ext_resource path="res://art/HUD assets/pause_panel_button.png" type="Texture" id=7]
+[ext_resource path="res://art/HUD assets/pause_panel_button_pressed.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 98, 137 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="control_config" type="Panel"]
+margin_left = 176.0
+margin_top = 64.0
+margin_right = 860.0
+margin_bottom = 512.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputMapper" type="Node" parent="." groups=[
+"persist",
+]]
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 69.0
+margin_top = 64.0
+margin_right = 613.0
+margin_bottom = 400.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="warning" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 544.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.752941, 0, 0, 1 )
+text = "ONE OR MORE OF THE SELECTED KEYS IS EMPTY. PLEASE SELECT A VALID KEY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 41.0
+margin_right = 544.0
+margin_bottom = 272.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Column"]
+self_modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
+margin_left = 74.0
+margin_right = 470.0
+margin_bottom = 36.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+text = "CONTROL  CONFIGURATION"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Column"]
+margin_top = 51.0
+margin_right = 544.0
+margin_bottom = 75.0
+size_flags_horizontal = 7
+custom_constants/separation = 205
+alignment = 1
+
+[node name="Action" type="Label" parent="VBoxContainer/Column/HBoxContainer"]
+self_modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
+margin_left = 66.0
+margin_right = 170.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 4 )
+text = "Action  "
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Control" type="Label" parent="VBoxContainer/Column/HBoxContainer"]
+self_modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
+margin_left = 375.0
+margin_right = 478.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 5 )
+text = " Control"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Scrollable" type="ScrollContainer" parent="VBoxContainer/Column"]
+margin_top = 90.0
+margin_right = 544.0
+margin_bottom = 231.0
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="VBoxContainer/Column/Scrollable"]
+margin_left = 272.0
+margin_right = 272.0
+size_flags_horizontal = 6
+custom_constants/separation = 15
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 297.0
+margin_right = 544.0
+margin_bottom = 336.0
+size_flags_horizontal = 9
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 12.0
+margin_right = 229.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="restore_default" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 249.0
+margin_right = 432.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/restore_default"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+margin_left = 12.0
+margin_right = 171.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 6 )
+text = "RESTORE DEFAULTS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 452.0
+margin_right = 544.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/back_button"]
+modulate = Color( 0.545098, 0.545098, 0.545098, 1 )
+margin_right = 92.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 7 )
+text = "GO BACK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeySelection" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 0.14902, 0.133333, 0.133333, 0.721569 )
+margin_right = 812.0
+margin_bottom = 448.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="KeySelection"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -482.0
+margin_top = -224.0
+margin_right = -332.0
+margin_bottom = -193.0
+grow_vertical = 2
+custom_fonts/font = SubResource( 8 )
+text = "Pick a key"
+uppercase = true
+[connection signal="init" from="InputMapper" to="." method="_on_InputMapper_init"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/restore_default" to="." method="_on_restore_default_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/back_button" to="." method="_on_back_button_pressed"]

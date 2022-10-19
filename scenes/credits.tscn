@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/credits.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+extra_spacing_top = 5
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="credits" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1026.0
+margin_bottom = 1453.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_left = 168.0
+margin_right = 858.0
+margin_bottom = 1401.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 1 )
+text = "
+Main Team:
+Siddharth Joshi
+Shashank Nerurkar
+Sanpreet Gill
+
+Assisted By:
+Rishabh Balse
+Soham Upadeo
+
+Guided By:
+Khushboo Patel
+
+Applications and Websites Used:
+The Godot Game Engine ver 3.1.1.
+Aseprite ver1.16-dev
+Bandicam  
+Reddit (r/godot)
+
+Special thanks to:
+KidsCanCode (youtube)
+GDQuest (youtube)
+HeartBeast (youtube)
+Game Endeavor (youtube)
+Mister Taft Creates (youtube)
+Tepid Monkey Fonts (tepidmonkey.1001fonts.com)
+
+and, lastly, 
+our families, for allowing us to pursue this. 
+
+
+
+
+
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 778.0
+margin_top = 1405.0
+margin_right = 1026.0
+margin_bottom = 1453.0
+size_flags_horizontal = 8
+text = "Contact us: shash.nerurkar@gmail.com
+siddharthjoshi329@gmail.com
+speak2sheriy@gmail.com"
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 52.9831
+margin_top = 41.5273
+margin_right = 98.9831
+margin_bottom = 61.5273
+custom_fonts/font = SubResource( 2 )
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transition" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 11.0
+margin_bottom = 11.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="transition"]
+anims/fade_in = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[connection signal="animation_finished" from="transition/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

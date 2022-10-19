@@ -1,0 +1,377 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://music/main-menu.ogg" type="AudioStream" id=2]
+[ext_resource path="res://art/main menu assets/wall.png" type="Texture" id=3]
+[ext_resource path="res://art/main menu assets/light.png" type="Texture" id=4]
+[ext_resource path="res://art/main menu assets/lantern_2.png" type="Texture" id=5]
+[ext_resource path="res://art/main menu assets/lantern_3.png" type="Texture" id=6]
+[ext_resource path="res://art/main menu assets/lantern_4.png" type="Texture" id=7]
+[ext_resource path="res://fonts/kenvector_future.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://art/main menu assets/lantern_1.png" type="Texture" id=9]
+[ext_resource path="res://art/main menu assets/gun_disp.png" type="Texture" id=10]
+[ext_resource path="res://art/main menu assets/barrel.png" type="Texture" id=11]
+[ext_resource path="res://art/main menu assets/stabber.png" type="Texture" id=12]
+[ext_resource path="res://scenes/godot_popup.tscn" type="PackedScene" id=18]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://art/icons/DialogueBox.png" type="Texture" id=20]
+[ext_resource path="res://art/buttons/no_borderless.png" type="Texture" id=21]
+[ext_resource path="res://art/buttons/yes_borderless.png" type="Texture" id=22]
+[ext_resource path="res://art/buttons/yes_pressed_borderless.png" type="Texture" id=23]
+[ext_resource path="res://art/buttons/no_pressed_borderless.png" type="Texture" id=24]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+cull_mode = 1
+polygon = PoolVector2Array( -48.4007, -30.0696, -38.1339, -29.8895, -34.7117, -30.2497, -19.5817, -30.0696, -15.3119, -30.6647, -9.3149, -29.7093, -6.97335, -30.0696, 8.33678, -30.0696, 11.2187, -29.7093, 17.703, -30.2497, 20.4048, -30.9702, 35.895, -30.4298, 37.8763, -30.9702, 46.5226, -31.1654, 45.8058, -14.5402, 44.1415, -12.4135, 42.1998, -3.90698, 41.2752, 1.64077, 39.8882, 7.92822, 36.9294, 18.1916, 36.0973, 23.8318, 35.5425, 30.4891, 34.248, 34.0026, 33.5083, 37.9785, 29.9947, 40.7524, 28.5153, 32.1534, 24.2621, -4.8316, 22.9676, -10.5643, 20.7485, -28.4095, 12.242, -27.6698, 10.73, -10.7926, 8.89402, -7.10975, 6.87372, 2.20123, 5.2926, 6.94456, 4.32638, 12.5663, 3.18446, 19.7691, 2.30607, 25.5665, 1.07632, 32.945, -3.3082, 40.8097, -4.97298, 34.3885, -5.79992, 20.5239, -6.83304, 10.5155, -7.41417, 3.92938, -9.09299, -8.8555, -11.4763, -10.4366, -11.0947, -27.9682, -18.8461, -27.3668, -21.3036, -9.84701, -23.999, -3.18791, -27.3285, 12.9049, -28.8348, 18.692, -30.7374, 30.9003, -32.3229, 37.4009, -36.2073, 40.7304, -38.0054, 25.0397, -38.4235, 17.3742, -40.2354, 12.7749, -41.211, 3.85507, -42.8834, -2.41669, -44.4165, -11.0578, -44.8347, -19.1414, -44.5559, -27.7825, -49.3013, -27.9081 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "flicker",
+"speed": 3.0
+} ]
+
+[sub_resource type="OccluderPolygon2D" id=3]
+closed = false
+cull_mode = 1
+polygon = PoolVector2Array( 8.70524, 13.8139, 8.79531, 16.966, 6.09352, 18.1367, 4.92275, 19.7578, -2.82234, 20.028, -3.72294, 18.9473, -5.52412, 18.497, -6.15454, 17.9566, -7.68554, 17.6864, -8.04578, 16.5157, -8.94637, 15.525, -9.30661, 12.2829, -8.13584, 11.9226, -8.04578, -3.11726, -8.6762, -4.28802, -9.39667, -5.63892, -8.04578, -6.44945, -7.53522, -6.80475, -7.01382, -6.86609, -6.87868, -9.56138, -3.73187, -9.79448, -7.81108, -13.7863, -6.48785, -14.4757, -5.01875, -14.7328, -4.15566, -15.5041, -2.72329, -16.7712, -2.50293, -18.5157, -1.75002, -19.691, 2.06998, -20.0151, 1.60295, -19.2836, 2.20313, -18.646, 3.33673, -16.4406, 4.3651, -15.2837, 6.42183, -14.0166, 7.12539, -14.1044, 3.93122, -9.88189, 5.5629, -9.85275, 7.86473, -7.44478, 7.03338, -8.00091, 7.24807, -5.97664, 8.03094, -5.20296, 8.05467, -3.8502, 8.07097, -3.90634, 8.1329, 12.9309 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+cull_mode = 1
+polygon = PoolVector2Array( -39.9454, -61.3211, -15.7365, -61.0883, -10.1499, -55.5017, -2.00269, -42.6989, 8.84618, -36.2512, 15.6034, -41.677, 18.9473, -47.1217, 10.1017, -55.2689, 13.0898, -61.7894, 35.4745, -63.4161, 38.9661, -57.8294, 33.6123, -47.82, 37.6359, -36.5931, 41.7595, -42.2334, 46.415, -38.5089, 64.1061, -37.8106, 79.4694, -32.2239, 95.7638, -32.9223, 104.609, -27.8012, 102.282, -24.3095, 90.6427, -20.1195, 67.3649, -22.2145, 67.8305, -18.2573, 43.8544, -18.7229, 37.1039, -12.9034, 36.1728, 4.55486, 30.3534, 11.771, 20.8095, 13.1676, 11.9639, 4.32208, 13.8262, -8.24789, 14.5245, -14.3001, 3.01131, -18.5492, -2.00269, -7.78233, -3.39934, 5.71875, -2.23546, 17.1248, -32.0309, 17.1248, -32.4965, 4.32208, -48.7909, 4.32208, -51.1187, -7.54955, -57.4037, -18.0245, -83.0092, -16.8606, -85.1042, -6.38567, -97.6741, -5.45456, -102.562, -12.4379, -104.89, -26.1717, -103.494, -36.1812, -96.2775, -42.6989, -87.1992, -42.0006, -85.3369, -38.0434, -56.2398, -37.1123, -50.4203, -51.7772 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+cull_mode = 1
+polygon = PoolVector2Array( -61.4016, 27.7533, -59.4944, 29.5138, -57.147, 30.6874, 5.20374, 31.7144, 5.64388, 43.8911, 3.58997, 46.3851, -43.7966, 46.2384, -44.09, 49.0259, -80.4736, 49.466, -80.9137, 53.2804, -83.8479, 53.8672, -84.4347, 56.2146, -87.0754, 56.2146, -97.7851, 64.8703, -100.866, 65.017, -101.453, 41.2504, -98.2252, 40.3701, -88.1024, 40.0767, -86.3419, 41.6905, -82.3808, 41.5438, -76.5125, 33.7683, -70.6441, 32.888, -65.5094, 30.1006, -63.8956, 27.7533 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( -8.96494, -23.1213, 6.41304, -23.3734, 12.7155, -20.7264, 13.5611, -16.3236, 16.8951, -12.0648, 28.4041, -11.6747, 38.9379, -10.1142, 48.3987, -5.53005, 49.5691, 5.39379, 48.3987, 17.0004, 41.4738, 19.8288, 31.7203, 22.4623, 23.5274, 22.8524, 16.2124, 21.682, 12.5894, 18.7269, 7.04327, 22.7605, -0.964569, 22.6176, -5.74049, 22.5324, -11.2999, 20.7768, -14.226, 18.7286, -16.2758, 11.164, -18.4186, 1.20613, -17.7884, -11.6509, -13.2506, -21.7348 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 55
+extra_spacing_char = -5
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 48
+extra_spacing_char = 1
+font_data = ExtResource( 19 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 850, 235 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 26
+font_data = ExtResource( 19 )
+
+[node name="Main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -23.0
+mix_target = 1
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+position = Vector2( 173.908, 429.962 )
+texture = ExtResource( 4 )
+texture_scale = 50.0
+color = Color( 1, 0.72549, 0, 1 )
+energy = 2.5
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_gradient_length = 1.3
+shadow_filter = 5
+shadow_filter_smooth = 4.9
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cellar" type="Sprite" parent="."]
+position = Vector2( 474.768, 192.39 )
+z_index = -5
+texture = ExtResource( 3 )
+
+[node name="stabber" type="Sprite" parent="."]
+light_mask = 129
+position = Vector2( 180.841, 154.525 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="stabber"]
+occluder = SubResource( 1 )
+
+[node name="lantern" type="AnimatedSprite" parent="."]
+position = Vector2( 173.908, 429.962 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 2 )
+animation = "flicker"
+frame = 3
+playing = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="lantern"]
+occluder = SubResource( 3 )
+
+[node name="guns" type="Sprite" parent="."]
+position = Vector2( 690.7, 248.015 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+
+[node name="machinegun" type="LightOccluder2D" parent="guns"]
+occluder = SubResource( 4 )
+
+[node name="shotgun" type="LightOccluder2D" parent="guns"]
+occluder = SubResource( 5 )
+
+[node name="barrel" type="Sprite" parent="."]
+position = Vector2( 822.694, 464.015 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 11 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="barrel"]
+occluder = SubResource( 6 )
+
+[node name="barrel2" type="Sprite" parent="."]
+position = Vector2( 949.044, 492.798 )
+rotation = 1.57311
+scale = Vector2( 5, 5 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="darkener" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.0
+margin_bottom = 7.0
+color = Color( 0, 0, 0, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transition" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_right = 5.0
+margin_bottom = 6.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="transition"]
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 2
+margin_left = 342.0
+margin_top = 68.4968
+margin_right = 944.0
+margin_bottom = 498.497
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 29
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu"]
+margin_right = 602.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "THE GRAND SCHEME OF THINGS"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="buttons" type="VBoxContainer" parent="Menu"]
+margin_top = 158.0
+margin_right = 602.0
+margin_bottom = 430.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="newgame" type="Button" parent="Menu/buttons"]
+light_mask = 0
+margin_right = 602.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.717647, 0.278431, 1 )
+text = "NEW GAME"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="loadgame" type="Button" parent="Menu/buttons"]
+light_mask = 0
+margin_top = 70.0
+margin_right = 602.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 300, 60 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0.431373, 0.333333, 0.152941, 1 )
+custom_colors/font_color = Color( 1, 0.717647, 0.278431, 1 )
+text = "LOAD GAME"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits" type="Button" parent="Menu/buttons"]
+light_mask = 0
+margin_top = 140.0
+margin_right = 602.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 60 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.717647, 0.278431, 1 )
+text = "CREDITS"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="Menu/buttons"]
+light_mask = 0
+margin_top = 210.0
+margin_right = 602.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 300, 60 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.717647, 0.278431, 1 )
+text = "EXIT"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overwrite_prompt" type="Panel" parent="."]
+visible = false
+light_mask = 0
+margin_left = 283.74
+margin_top = 255.897
+margin_right = 787.74
+margin_bottom = 390.897
+rect_scale = Vector2( 0.8, 0.8 )
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="overwrite_prompt"]
+light_mask = 0
+margin_left = 25.6033
+margin_top = 9.43002
+margin_right = 487.603
+margin_bottom = 69.43
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.470588, 0.364706, 0.666667, 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overwrite_yes" type="TextureButton" parent="overwrite_prompt"]
+light_mask = 0
+margin_left = 183.505
+margin_top = 83.8887
+margin_right = 209.505
+margin_bottom = 98.8887
+rect_scale = Vector2( 2.5, 2.5 )
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overwrite_no" type="TextureButton" parent="overwrite_prompt"]
+light_mask = 0
+margin_left = 260.056
+margin_top = 85.4351
+margin_right = 286.056
+margin_bottom = 100.435
+rect_scale = Vector2( 2.5, 2.5 )
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 24 )
+
+[node name="ini_tr" parent="." instance=ExtResource( 18 )]
+position = Vector2( 0, -1.36035 )
+[connection signal="animation_finished" from="transition/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="overwrite_prompt/overwrite_yes" to="." method="_on_overwrite_yes_pressed"]
+[connection signal="pressed" from="overwrite_prompt/overwrite_no" to="." method="_on_overwrite_no_pressed"]
+[connection signal="done" from="ini_tr" to="." method="_on_ini_tr_done"]

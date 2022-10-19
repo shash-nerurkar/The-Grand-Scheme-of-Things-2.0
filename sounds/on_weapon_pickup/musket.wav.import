@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/musket.wav-cc019675a6e9690dd3673936d8327021.sample"
+
+[deps]
+
+source_file="res://sounds/on_weapon_pickup/musket.wav"
+dest_files=[ "res://.import/musket.wav-cc019675a6e9690dd3673936d8327021.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

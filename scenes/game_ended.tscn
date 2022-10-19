@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://art/HUD assets/pause_panel_button.png" type="Texture" id=1]
+[ext_resource path="res://art/HUD assets/pause_panel_button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://art/HUD assets/character_selection_panel.png" type="Texture" id=3]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 98, 137 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_char = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[node name="end_game" type="Panel"]
+margin_left = 294.0
+margin_top = 177.0
+margin_right = 665.0
+margin_bottom = 410.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 47.0
+margin_top = 41.0
+margin_right = 324.0
+margin_bottom = 222.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 277.0
+margin_bottom = 73.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "YOU DIED, BECAUSE YOU WERE INCOMPETENT. OR BECAUSE YOU WERE BUG-TESTING.
+THINK ABOUT IT."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 77.0
+margin_right = 277.0
+margin_bottom = 181.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_constants/separation = 20
+
+[node name="try_again" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/try_again"]
+margin_left = 4.0
+margin_top = 34.0
+margin_right = 126.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 3 )
+text = "TRY AGAIN"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 277.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/quit"]
+margin_left = 2.0
+margin_top = 34.0
+margin_right = 128.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 4 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

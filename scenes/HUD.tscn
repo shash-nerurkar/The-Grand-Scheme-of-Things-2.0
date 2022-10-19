@@ -1,0 +1,979 @@
+[gd_scene load_steps=75 format=2]
+
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://art/HUD assets/barHorizontal_shadow_mid.png" type="Texture" id=2]
+[ext_resource path="res://art/HUD assets/bullet.png" type="Texture" id=4]
+[ext_resource path="res://art/HUD assets/barHorizontal_green_mid.png" type="Texture" id=5]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://art/icons/interact_notifier_frame.png" type="Texture" id=7]
+[ext_resource path="res://art/HUD assets/barHorizontal_frame.png" type="Texture" id=8]
+[ext_resource path="res://art/HUD assets/white.png" type="Texture" id=9]
+[ext_resource path="res://scenes/game_ended.tscn" type="PackedScene" id=10]
+[ext_resource path="res://art/coin/coin_6.png" type="Texture" id=11]
+[ext_resource path="res://art/coin/coin_2.png" type="Texture" id=12]
+[ext_resource path="res://art/coin/coin_3.png" type="Texture" id=13]
+[ext_resource path="res://art/coin/coin_4.png" type="Texture" id=14]
+[ext_resource path="res://art/coin/coin_5.png" type="Texture" id=15]
+[ext_resource path="res://art/coin/coin_1.png" type="Texture" id=16]
+[ext_resource path="res://scenes/control_config.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/sound_settings.tscn" type="PackedScene" id=18]
+[ext_resource path="res://art/buttons/BackButtOnClick.png" type="Texture" id=19]
+[ext_resource path="res://art/weapons/display/pistol.png" type="Texture" id=20]
+[ext_resource path="res://art/buttons/BackButt.png" type="Texture" id=21]
+[ext_resource path="res://art/icons/DialogueBox.png" type="Texture" id=22]
+[ext_resource path="res://art/buttons/no.png" type="Texture" id=23]
+[ext_resource path="res://art/buttons/no_pressed.png" type="Texture" id=24]
+[ext_resource path="res://art/buttons/yes_pressed.png" type="Texture" id=25]
+[ext_resource path="res://art/buttons/yes.png" type="Texture" id=26]
+[ext_resource path="res://art/HUD assets/pause_panel.png" type="Texture" id=27]
+[ext_resource path="res://art/HUD assets/info.png" type="Texture" id=28]
+[ext_resource path="res://art/HUD assets/pause_panel_button.png" type="Texture" id=29]
+[ext_resource path="res://art/HUD assets/pause_panel_button_pressed.png" type="Texture" id=30]
+[ext_resource path="res://art/HUD assets/loading1.png" type="Texture" id=31]
+[ext_resource path="res://art/HUD assets/loading2.png" type="Texture" id=32]
+[ext_resource path="res://art/HUD assets/loading3.png" type="Texture" id=33]
+[ext_resource path="res://art/HUD assets/loading_bar.png" type="Texture" id=34]
+[ext_resource path="res://art/HUD assets/loading_screen.png" type="Texture" id=35]
+[ext_resource path="res://art/HUD assets/minimap.png" type="Texture" id=36]
+[ext_resource path="res://art/HUD assets/info_pressed.png" type="Texture" id=37]
+[ext_resource path="res://art/HUD assets/info_hover.png" type="Texture" id=38]
+[ext_resource path="res://scenes/pickup_notifier.tscn" type="PackedScene" id=39]
+[ext_resource path="res://scenes/archive.tscn" type="PackedScene" id=40]
+[ext_resource path="res://art/HUD assets/archive_notifier.png" type="Texture" id=41]
+[ext_resource path="res://art/weapons/display/machine_gun.png" type="Texture" id=42]
+[ext_resource path="res://art/weapons/display/shotgun.png" type="Texture" id=43]
+[ext_resource path="res://art/weapons/display/m4a1.png" type="Texture" id=44]
+[ext_resource path="res://art/weapons/display/musket.png" type="Texture" id=45]
+[ext_resource path="res://art/weapons/display/gatling_gun.png" type="Texture" id=46]
+[ext_resource path="res://art/HUD assets/Q_key.png" type="Texture" id=47]
+[ext_resource path="res://art/HUD assets/E_key.png" type="Texture" id=48]
+[ext_resource path="res://art/HUD assets/ability_colorfill.png" type="Texture" id=49]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 27 )
+region_rect = Rect2( 0, 0, 98, 137 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 850, 235 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 36 )
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AnimatedTexture" id=11]
+frames = 6
+fps = 10.0
+frame_0/texture = ExtResource( 16 )
+frame_1/texture = ExtResource( 11 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 15 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 14 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 13 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 12 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="DynamicFont" id=12]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=13]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 100, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 100, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=15]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.000880127, 0.0473662, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 6 )
+
+[sub_resource type="Shader" id=17]
+code = "shader_type canvas_item;
+
+uniform float amount : hint_range(0.0, 5.0);
+
+void fragment() {
+
+	COLOR.rgb = textureLod(SCREEN_TEXTURE, SCREEN_UV, amount).rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 17 )
+shader_param/amount = 3.0
+
+[sub_resource type="Animation" id=19]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=21]
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=22]
+resource_name = "archive_popup_blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=23]
+size = 12
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 24
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="AnimatedTexture" id=25]
+frames = 3
+fps = 2.0
+frame_0/texture = ExtResource( 31 )
+frame_1/texture = ExtResource( 32 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 33 )
+frame_2/delay_sec = 0.0
+
+[sub_resource type="DynamicFont" id=26]
+size = 19
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[node name="HUD" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="pause_panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.346
+anchor_top = 0.193
+anchor_right = 0.346
+anchor_bottom = 0.193
+margin_left = -25.304
+margin_top = -48.8
+margin_right = 290.696
+margin_bottom = 374.2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_panel"]
+margin_left = 50.0
+margin_top = 82.0
+margin_right = 273.0
+margin_bottom = 369.0
+custom_constants/separation = 18
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="control_config" type="TextureButton" parent="pause_panel/VBoxContainer"]
+margin_right = 223.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 30 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="pause_panel/VBoxContainer/control_config"]
+self_modulate = Color( 0.603922, 0.603922, 0.603922, 1 )
+margin_left = 50.5805
+margin_top = 3.77377
+margin_right = 172.581
+margin_bottom = 39.7738
+custom_fonts/font = SubResource( 2 )
+text = "CONTROLS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sound_settings" type="TextureButton" parent="pause_panel/VBoxContainer"]
+margin_top = 61.0
+margin_right = 223.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 30 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="pause_panel/VBoxContainer/sound_settings"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+margin_left = 49.8946
+margin_top = 4.54756
+margin_right = 171.895
+margin_bottom = 39.5476
+custom_fonts/font = SubResource( 3 )
+text = "SOUND"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="archive" type="TextureButton" parent="pause_panel/VBoxContainer"]
+margin_top = 122.0
+margin_right = 223.0
+margin_bottom = 165.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 30 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="pause_panel/VBoxContainer/archive"]
+modulate = Color( 0.603922, 0.603922, 0.603922, 1 )
+margin_left = 32.0
+margin_top = 2.40759
+margin_right = 195.0
+margin_bottom = 41.4076
+custom_fonts/font = SubResource( 4 )
+text = "ARCHIVE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureButton" parent="pause_panel/VBoxContainer"]
+margin_top = 183.0
+margin_right = 223.0
+margin_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 30 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="pause_panel/VBoxContainer/back"]
+modulate = Color( 0.603922, 0.603922, 0.603922, 1 )
+margin_right = 220.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 5 )
+text = "BACK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="TextureButton" parent="pause_panel/VBoxContainer"]
+margin_top = 244.0
+margin_right = 223.0
+margin_bottom = 287.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 30 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="pause_panel/VBoxContainer/exit"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+margin_left = 50.8946
+margin_top = 6.09512
+margin_right = 172.895
+margin_bottom = 43.0951
+custom_fonts/font = SubResource( 6 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="control_config" parent="." instance=ExtResource( 17 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 166.028
+margin_top = 83.892
+margin_right = -155.972
+margin_bottom = -72.108
+
+[node name="sound_settings" parent="." instance=ExtResource( 18 )]
+visible = false
+margin_left = 351.162
+margin_top = 176.315
+margin_right = 679.162
+margin_bottom = 443.315
+
+[node name="end_game" parent="." instance=ExtResource( 10 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 197.0
+margin_right = -336.0
+margin_bottom = -180.0
+
+[node name="shop_panel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="shop_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="TextureButton" parent="shop_panel/VBoxContainer"]
+margin_left = 890.0
+margin_right = 944.0
+margin_bottom = 24.0
+size_flags_horizontal = 8
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 21 )
+
+[node name="GridContainer" type="GridContainer" parent="shop_panel/VBoxContainer"]
+margin_top = 28.0
+margin_right = 944.0
+margin_bottom = 528.0
+size_flags_vertical = 3
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item1" type="TextureButton" parent="shop_panel/VBoxContainer/GridContainer"]
+margin_right = 472.0
+margin_bottom = 166.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 46 )
+expand = true
+stretch_mode = 5
+
+[node name="item2" type="TextureButton" parent="shop_panel/VBoxContainer/GridContainer"]
+margin_left = 472.0
+margin_right = 944.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+
+[node name="item3" type="TextureButton" parent="shop_panel/VBoxContainer/GridContainer"]
+margin_top = 166.0
+margin_right = 472.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 42 )
+expand = true
+stretch_mode = 5
+
+[node name="item4" type="TextureButton" parent="shop_panel/VBoxContainer/GridContainer"]
+margin_left = 472.0
+margin_top = 166.0
+margin_right = 944.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 45 )
+expand = true
+stretch_mode = 5
+
+[node name="item5" type="TextureButton" parent="shop_panel/VBoxContainer/GridContainer"]
+margin_top = 332.0
+margin_right = 472.0
+margin_bottom = 498.0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+texture_normal = ExtResource( 20 )
+expand = true
+stretch_mode = 5
+
+[node name="item6" type="TextureButton" parent="shop_panel/VBoxContainer/GridContainer"]
+margin_left = 472.0
+margin_top = 332.0
+margin_right = 944.0
+margin_bottom = 498.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 43 )
+expand = true
+stretch_mode = 5
+
+[node name="textbox" type="Panel" parent="."]
+visible = false
+margin_left = 7.75415
+margin_top = 345.352
+margin_right = 1010.75
+margin_bottom = 593.352
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="textbox"]
+margin_left = 41.7038
+margin_top = 25.069
+margin_right = 827.704
+margin_bottom = 216.069
+custom_fonts/font = SubResource( 9 )
+text = "FRAN: Name your price."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes" type="TextureButton" parent="textbox"]
+margin_left = 760.0
+margin_top = -37.135
+margin_right = 838.0
+margin_bottom = 7.86512
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no" type="TextureButton" parent="textbox"]
+margin_left = 847.305
+margin_top = -37.1349
+margin_right = 925.305
+margin_bottom = 7.86517
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="minimap" type="Panel" parent="."]
+self_modulate = Color( 0.0313726, 0, 1, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.282959
+margin_top = 0.0511475
+margin_right = -0.282959
+margin_bottom = 0.0511475
+grow_horizontal = 0
+grow_vertical = 0
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_hp" type="TextureProgress" parent="."]
+margin_left = 25.0
+margin_top = 244.0
+margin_right = 135.0
+margin_bottom = 264.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = -90.0
+rect_scale = Vector2( 2, 2 )
+max_value = 20.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 8 )
+texture_progress = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gold" type="TextureRect" parent="."]
+margin_left = 751.0
+margin_top = 19.0
+margin_right = 787.0
+margin_bottom = 62.0
+texture = SubResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="gold"]
+margin_left = 38.0
+margin_top = 6.77057
+margin_right = 91.0
+margin_bottom = 36.7706
+custom_fonts/font = SubResource( 12 )
+text = "BACK"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ammo" type="TextureRect" parent="."]
+anchor_top = 0.00102453
+anchor_bottom = 0.00102453
+margin_left = 912.983
+margin_top = 18.8034
+margin_right = 929.983
+margin_bottom = 58.8034
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ammo"]
+margin_left = 21.2544
+margin_top = 9.7532
+margin_right = 69.2544
+margin_bottom = 34.7532
+custom_fonts/font = SubResource( 12 )
+text = "BACK"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ammo/Label"]
+"anims/label mod" = SubResource( 13 )
+
+[node name="Timer" type="Timer" parent="ammo/Label"]
+one_shot = true
+
+[node name="interact_notifier" type="Button" parent="."]
+margin_left = 414.03
+margin_top = 33.4303
+margin_right = 552.03
+margin_bottom = 59.4303
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 14 )
+text = " Pickup"
+icon = ExtResource( 7 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="interact_notifier"]
+anims/blink = SubResource( 15 )
+
+[node name="Label" type="Label" parent="interact_notifier"]
+margin_left = 20.1052
+margin_top = 5.53671
+margin_right = 52.1052
+margin_bottom = 19.5367
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blood_container" type="Node" parent="."]
+
+[node name="blur" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 18 )
+position = Vector2( 3.87695, 0 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="blur"]
+anims/blur = SubResource( 19 )
+anims/blur_out = SubResource( 20 )
+
+[node name="corridor_container" type="Node" parent="."]
+
+[node name="combination_info" type="TextureButton" parent="."]
+visible = false
+margin_left = 677.779
+margin_top = 21.66
+margin_right = 724.779
+margin_bottom = 69.66
+toggle_mode = true
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 37 )
+texture_hover = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="weapon_combo_panel" type="Panel" parent="combination_info"]
+visible = false
+margin_left = -461.78
+margin_top = 92.2959
+margin_right = 107.22
+margin_bottom = 478.296
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="combination_info/weapon_combo_panel"]
+margin_left = 23.0
+margin_top = 17.0
+margin_right = 549.0
+margin_bottom = 371.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Current" type="TextureRect" parent="combination_info/weapon_combo_panel/GridContainer"]
+margin_right = 172.0
+margin_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="combination_info/weapon_combo_panel/GridContainer/Current"]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 103.0
+margin_bottom = 29.0
+text = "CURRENT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Current_floor" type="TextureRect" parent="combination_info/weapon_combo_panel/GridContainer"]
+margin_left = 176.0
+margin_right = 348.0
+margin_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="combination_info/weapon_combo_panel/GridContainer/Current_floor"]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 114.0
+margin_bottom = 29.0
+text = "ON FLOOR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="After" type="TextureRect" parent="combination_info/weapon_combo_panel/GridContainer"]
+margin_left = 352.0
+margin_right = 524.0
+margin_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="combination_info/weapon_combo_panel/GridContainer/After"]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 107.0
+margin_bottom = 29.0
+text = "PRODUCT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destroyed" type="TextureRect" parent="combination_info/weapon_combo_panel/GridContainer"]
+margin_top = 179.0
+margin_right = 172.0
+margin_bottom = 354.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="combination_info/weapon_combo_panel/GridContainer/Destroyed"]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 119.0
+margin_bottom = 29.0
+text = "DESTROYED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Consumed" type="TextureRect" parent="combination_info/weapon_combo_panel/GridContainer"]
+margin_left = 176.0
+margin_top = 179.0
+margin_right = 348.0
+margin_bottom = 354.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="combination_info/weapon_combo_panel/GridContainer/Consumed"]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 120.0
+margin_bottom = 29.0
+text = "CONSUMED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pickup_frame" parent="." instance=ExtResource( 39 )]
+margin_left = 352.216
+margin_top = 615.0
+margin_right = 637.216
+margin_bottom = 671.0
+
+[node name="archive_popup" type="TextureButton" parent="."]
+visible = false
+margin_left = 98.0
+margin_top = 24.0
+margin_right = 378.0
+margin_bottom = 95.0
+texture_normal = ExtResource( 41 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="archive_popup"]
+margin_left = 2.0
+margin_right = 280.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 21 )
+text = "NEW ARCHIVE ENTRIES!"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="archive_popup"]
+anims/archive_popup_blink = SubResource( 22 )
+
+[node name="minimap_label" type="Label" parent="."]
+margin_left = 703.0
+margin_top = 393.0
+margin_right = 922.0
+margin_bottom = 407.0
+custom_fonts/font = SubResource( 23 )
+text = "SAMPLE TEXT"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ability_1_indicator" type="TextureProgress" parent="."]
+margin_left = 25.0
+margin_top = 500.0
+margin_right = 125.0
+margin_bottom = 600.0
+rect_scale = Vector2( 0.7, 0.7 )
+step = 0.001
+texture_under = ExtResource( 47 )
+texture_progress = ExtResource( 49 )
+fill_mode = 5
+tint_progress = Color( 0, 0, 1, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ability_2_indicator" type="TextureProgress" parent="."]
+margin_left = 120.0
+margin_top = 500.0
+margin_right = 220.0
+margin_bottom = 600.0
+rect_scale = Vector2( 0.7, 0.7 )
+step = 0.001
+texture_under = ExtResource( 48 )
+texture_progress = ExtResource( 49 )
+fill_mode = 5
+tint_progress = Color( 0, 0, 1, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="archive" parent="." instance=ExtResource( 40 )]
+visible = false
+
+[node name="trans" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="loading_text" type="Label" parent="trans"]
+margin_left = 262.77
+margin_top = 411.985
+margin_right = 765.77
+margin_bottom = 458.985
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 0, 1, 0.0392157, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.556863, 0.12549, 1 )
+text = "LOADING"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="loading_periods" type="TextureRect" parent="trans/loading_text"]
+margin_left = 303.015
+margin_top = 25.4717
+margin_right = 331.015
+margin_bottom = 31.4717
+texture = SubResource( 25 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="loading_bar" type="TextureProgress" parent="trans/loading_text"]
+margin_left = 144.503
+margin_top = 44.05
+margin_right = 363.503
+margin_bottom = 76.05
+max_value = 5.5
+step = 0.01
+texture_progress = ExtResource( 34 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tip" type="Label" parent="trans/loading_text"]
+margin_left = -91.9555
+margin_top = 99.9828
+margin_right = 607.045
+margin_bottom = 149.983
+custom_fonts/font = SubResource( 26 )
+custom_colors/font_color = Color( 0.313726, 1, 0, 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="pause_panel/VBoxContainer/control_config" to="." method="_on_control_config_pressed"]
+[connection signal="pressed" from="pause_panel/VBoxContainer/sound_settings" to="." method="_on_sound_settings_pressed"]
+[connection signal="pressed" from="pause_panel/VBoxContainer/archive" to="." method="_on_archive_pressed"]
+[connection signal="pressed" from="pause_panel/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="pause_panel/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="shop_panel/VBoxContainer/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="textbox/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="textbox/no" to="." method="_on_no_pressed"]
+[connection signal="animation_finished" from="blur/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="toggled" from="combination_info" to="." method="_on_combination_info_toggled"]
+[connection signal="pressed" from="archive_popup" to="." method="_on_archive_popup_pressed"]

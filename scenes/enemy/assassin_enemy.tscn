@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/trail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/enemies/timer_full.png" type="Texture" id=68]
+[ext_resource path="res://art/enemies/health_bar.png" type="Texture" id=71]
+[ext_resource path="res://art/enemies/health_bar_over.png" type="Texture" id=74]
+[ext_resource path="res://art/enemies/timer.png" type="Texture" id=75]
+[ext_resource path="res://art/enemies/health_bar_under.png" type="Texture" id=80]
+[ext_resource path="res://scripts/assassin_enemy.gd" type="Script" id=231]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.6, 2.3 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.5582
+height = 33.505
+
+[sub_resource type="Animation" id=3]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 66.6691
+
+[node name="enemy" type="KinematicBody2D" groups=[
+"enemies",
+]]
+visible = false
+collision_layer = 2
+collision_mask = 19
+script = ExtResource( 231 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0476809, 15.0296 )
+shape = SubResource( 1 )
+
+[node name="inner_coll" type="Area2D" parent="." groups=[
+"enemy_inner",
+]]
+collision_layer = 64
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inner_coll"]
+position = Vector2( -1.98882, -13.2256 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="damage" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 3 )
+
+[node name="player_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 10000, 0 )
+collision_mask = 145
+
+[node name="health_bar" type="TextureProgress" parent="."]
+margin_left = -20.7693
+margin_top = -51.7583
+margin_right = -2.76934
+margin_bottom = -48.7583
+rect_scale = Vector2( 2.5, 1 )
+texture_under = ExtResource( 80 )
+texture_over = ExtResource( 74 )
+texture_progress = ExtResource( 71 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cooldown_indicator" type="TextureProgress" parent="."]
+show_behind_parent = true
+margin_left = -20.6937
+margin_top = 13.5704
+margin_right = 379.306
+margin_bottom = 133.571
+rect_scale = Vector2( 0.1, 0.1 )
+step = 0.001
+texture_under = ExtResource( 75 )
+texture_progress = ExtResource( 68 )
+fill_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="melee_weapon" type="Area2D" parent="."]
+position = Vector2( -1.33152, 2.92822 )
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_weapon"]
+position = Vector2( 0.971538, -15.2394 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="trail" parent="." instance=ExtResource( 1 )]
+emitting = false
+
+[node name="cooldown_timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+autostart = true
+
+[node name="cc_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="erp_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="animation_finished" from="sprite" to="." method="_on_mughal_mongol_animation_finished"]
+[connection signal="body_entered" from="melee_weapon" to="." method="_on_melee_weapon_body_entered"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="cc_timer" to="." method="_on_cc_timer_timeout"]

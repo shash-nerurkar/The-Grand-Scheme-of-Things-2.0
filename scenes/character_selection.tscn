@@ -1,0 +1,484 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://scripts/character_selection.gd" type="Script" id=1]
+[ext_resource path="res://art/HUD assets/pause_panel_button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://art/HUD assets/pause_panel_button.png" type="Texture" id=3]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure1.png" type="Texture" id=4]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure2.png" type="Texture" id=5]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure3.png" type="Texture" id=6]
+[ext_resource path="res://art/bounty_hunter/idle/bounty_hunter_1.png" type="Texture" id=7]
+[ext_resource path="res://art/bounty_hunter/idle/bounty_hunter_2.png" type="Texture" id=8]
+[ext_resource path="res://art/bounty_hunter/idle/bounty_hunter_3.png" type="Texture" id=9]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://art/buttons/exit.png" type="Texture" id=11]
+[ext_resource path="res://art/buttons/exit_pressed.png" type="Texture" id=12]
+[ext_resource path="res://art/buttons/exit_hover.png" type="Texture" id=13]
+[ext_resource path="res://art/icons/health.png" type="Texture" id=14]
+[ext_resource path="res://art/icons/god_points.png" type="Texture" id=15]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure4.png" type="Texture" id=16]
+[ext_resource path="res://art/hulk/idle/hulk_2.png" type="Texture" id=17]
+[ext_resource path="res://art/hulk/idle/hulk_3.png" type="Texture" id=18]
+[ext_resource path="res://art/hulk/idle/hulk_5.png" type="Texture" id=19]
+[ext_resource path="res://art/hulk/idle/hulk_1.png" type="Texture" id=20]
+[ext_resource path="res://art/hulk/idle/hulk_4.png" type="Texture" id=21]
+[ext_resource path="res://scenes/prompt.tscn" type="PackedScene" id=22]
+
+[sub_resource type="AnimatedTexture" id=1]
+frames = 6
+fps = 10.0
+frame_0/texture = ExtResource( 7 )
+frame_1/texture = ExtResource( 8 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 9 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 9 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 8 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 7 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=2]
+frames = 8
+fps = 10.0
+frame_0/texture = ExtResource( 4 )
+frame_1/texture = ExtResource( 5 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 6 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 16 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 16 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 6 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 5 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 4 )
+frame_7/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 10
+fps = 10.0
+frame_0/texture = ExtResource( 20 )
+frame_1/texture = ExtResource( 17 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 18 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 21 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 19 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 19 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 21 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 18 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 17 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 20 )
+frame_9/delay_sec = 0.0
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 23
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="AnimatedTexture" id=8]
+
+[sub_resource type="DynamicFont" id=16]
+size = 24
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 18
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 18
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=11]
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=13]
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=14]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.862745 ), Color( 0, 0, 0, 0.764706 ), Color( 0, 0, 0, 0.647059 ), Color( 0, 0, 0, 0.545098 ), Color( 0, 0, 0, 0.498039 ), Color( 0, 0, 0, 0.392157 ), Color( 0, 0, 0, 0.290196 ), Color( 0, 0, 0, 0.160784 ), Color( 0, 0, 0, 0.0392157 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.0980392 ), Color( 0, 0, 0, 0.172549 ), Color( 0, 0, 0, 0.278431 ), Color( 0, 0, 0, 0.364706 ), Color( 0, 0, 0, 0.462745 ), Color( 0, 0, 0, 0.54902 ), Color( 0, 0, 0, 0.631373 ), Color( 0, 0, 0, 0.741176 ), Color( 0, 0, 0, 0.901961 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="character_selection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+color = Color( 0.0509804, 0.0509804, 0.0588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 22.0
+margin_top = 21.0
+margin_right = 1001.0
+margin_bottom = 582.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bounty_hunter" type="TextureButton" parent="GridContainer"]
+margin_right = 323.0
+margin_bottom = 561.0
+size_flags_horizontal = 3
+texture_normal = SubResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hooded_figure" type="TextureButton" parent="GridContainer"]
+margin_left = 327.0
+margin_right = 650.0
+margin_bottom = 561.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = SubResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hulk" type="TextureButton" parent="GridContainer"]
+margin_left = 654.0
+margin_right = 977.0
+margin_bottom = 561.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = SubResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="oogc" type="Label" parent="."]
+margin_left = 66.8751
+margin_top = 35.1523
+margin_right = 106.875
+margin_bottom = 49.1523
+custom_fonts/font = SubResource( 4 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 19.5599
+margin_top = 19.5599
+margin_right = -20.4401
+margin_bottom = -20.4401
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 26.0
+margin_right = -27.0
+margin_bottom = -49.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="panel/VBoxContainer"]
+margin_right = 935.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="oogc" type="Label" parent="panel/VBoxContainer/HBoxContainer2"]
+margin_top = 9.0
+margin_right = 105.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+custom_fonts/font = SubResource( 5 )
+text = "OOGC"
+valign = 1
+
+[node name="name" type="Label" parent="panel/VBoxContainer/HBoxContainer2"]
+margin_left = 109.0
+margin_right = 813.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+custom_fonts/font = SubResource( 6 )
+text = "DUMMY NAME"
+valign = 1
+
+[node name="back_button" type="TextureButton" parent="panel/VBoxContainer/HBoxContainer2"]
+margin_left = 817.0
+margin_right = 935.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="panel/VBoxContainer/HBoxContainer2/back_button"]
+margin_right = 121.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 7 )
+text = "GO BACK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="panel/VBoxContainer"]
+margin_top = 57.0
+margin_right = 935.0
+margin_bottom = 485.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="panel/VBoxContainer/HBoxContainer"]
+margin_right = 377.0
+margin_bottom = 428.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+
+[node name="sprite" type="TextureRect" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 377.0
+margin_bottom = 287.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.85
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="select_button" type="TextureButton" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 292.0
+margin_right = 377.0
+margin_bottom = 351.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer/select_button"]
+margin_right = 378.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 16 )
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stats" type="VBoxContainer" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 356.0
+margin_right = 377.0
+margin_bottom = 410.0
+size_flags_vertical = 2
+size_flags_stretch_ratio = 1.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_points" type="Button" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer/stats"]
+margin_right = 160.0
+margin_bottom = 25.0
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+disabled = true
+text = " DUMMY AMOUNT"
+icon = ExtResource( 14 )
+flat = true
+
+[node name="god_points" type="Button" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer/stats"]
+margin_top = 29.0
+margin_right = 160.0
+margin_bottom = 54.0
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+disabled = true
+text = " DUMMY AMOUNT"
+icon = ExtResource( 15 )
+flat = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="panel/VBoxContainer/HBoxContainer"]
+margin_left = 407.0
+margin_right = 935.0
+margin_bottom = 428.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.4
+custom_constants/separation = 5
+
+[node name="info" type="Label" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 528.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 11 )
+text = "Dummy information about the character."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="abilties" type="VBoxContainer" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 21.0
+margin_right = 528.0
+margin_bottom = 428.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="Q_desc" type="Label" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties"]
+margin_right = 528.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 12 )
+text = "Dummy info about the Q ability"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Q_clip" type="VideoPlayer" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties"]
+margin_top = 20.0
+margin_right = 528.0
+margin_bottom = 201.0
+size_flags_vertical = 3
+volume_db = -80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E_desc" type="Label" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties"]
+margin_top = 205.0
+margin_right = 528.0
+margin_bottom = 221.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 13 )
+text = "Dummy info about the E ability"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E_clip" type="VideoPlayer" parent="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties"]
+margin_top = 225.0
+margin_right = 528.0
+margin_bottom = 407.0
+size_flags_vertical = 3
+volume_db = -80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transition" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="transition"]
+anims/fade_in = SubResource( 14 )
+anims/fade_out = SubResource( 15 )
+
+[node name="prompt" parent="." instance=ExtResource( 22 )]
+[connection signal="pressed" from="GridContainer/bounty_hunter" to="." method="_on_bounty_hunter_pressed"]
+[connection signal="pressed" from="GridContainer/hooded_figure" to="." method="_on_hooded_figure_pressed"]
+[connection signal="pressed" from="GridContainer/hulk" to="." method="_on_hulk_pressed"]
+[connection signal="pressed" from="panel/VBoxContainer/HBoxContainer2/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="panel/VBoxContainer/HBoxContainer/VBoxContainer/select_button" to="." method="_on_select_button_pressed"]
+[connection signal="mouse_entered" from="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties/Q_clip" to="." method="_on_Q_clip_mouse_entered"]
+[connection signal="mouse_exited" from="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties/Q_clip" to="." method="_on_Q_clip_mouse_exited"]
+[connection signal="mouse_entered" from="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties/E_clip" to="." method="_on_E_clip_mouse_entered"]
+[connection signal="mouse_exited" from="panel/VBoxContainer/HBoxContainer/VBoxContainer2/abilties/E_clip" to="." method="_on_E_clip_mouse_exited"]
+[connection signal="animation_finished" from="transition/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

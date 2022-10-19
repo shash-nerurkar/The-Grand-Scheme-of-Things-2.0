@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/The Purge Siren.wav-0d706ac230d41b7785a2b6be3ca6f6fb.sample"
+
+[deps]
+
+source_file="res://music/The Purge Siren.wav"
+dest_files=[ "res://.import/The Purge Siren.wav-0d706ac230d41b7785a2b6be3ca6f6fb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

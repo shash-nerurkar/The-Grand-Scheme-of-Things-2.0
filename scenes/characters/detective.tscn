@@ -1,0 +1,186 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure1.png" type="Texture" id=1]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure2.png" type="Texture" id=2]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure3.png" type="Texture" id=3]
+[ext_resource path="res://art/hooded_figure/idle/hooded_figure4.png" type="Texture" id=4]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run5.png" type="Texture" id=5]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run1.png" type="Texture" id=6]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run4.png" type="Texture" id=7]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run3.png" type="Texture" id=8]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run6.png" type="Texture" id=9]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run2.png" type="Texture" id=10]
+[ext_resource path="res://art/death/3.png" type="Texture" id=11]
+[ext_resource path="res://art/death/5.png" type="Texture" id=12]
+[ext_resource path="res://art/death/4.png" type="Texture" id=13]
+[ext_resource path="res://art/death/6.png" type="Texture" id=14]
+[ext_resource path="res://art/death/10.png" type="Texture" id=15]
+[ext_resource path="res://art/death/1.png" type="Texture" id=16]
+[ext_resource path="res://art/death/2.png" type="Texture" id=17]
+[ext_resource path="res://art/death/8.png" type="Texture" id=18]
+[ext_resource path="res://art/death/11.png" type="Texture" id=19]
+[ext_resource path="res://art/death/9.png" type="Texture" id=20]
+[ext_resource path="res://art/death/7.png" type="Texture" id=21]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run8.png" type="Texture" id=23]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run9.png" type="Texture" id=24]
+[ext_resource path="res://art/hooded_figure/run/hooded_figure_run7.png" type="Texture" id=25]
+[ext_resource path="res://art/particles/smoke.png" type="Texture" id=26]
+[ext_resource path="res://scripts/detective.gd" type="Script" id=38]
+[ext_resource path="res://scenes/weapon.tscn" type="PackedScene" id=49]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "death",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "run",
+"speed": 14.0
+} ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.482955, 1 )
+colors = PoolColorArray( 1, 0.5625, 0, 1, 0.98402, 0.322882, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 90.0
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 70.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+color_ramp = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 22 )
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.144531, 0.0547638, 0.0547638, 1, 0.145098, 0.054902, 0.054902, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0.00502513, 0.381818 ), 0.0, 0.0, 0, 0, Vector2( 0.984925, 0.690909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 6, 1, 0 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 5.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 14.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[node name="player" type="KinematicBody2D" groups=[
+"persist",
+"player",
+]]
+collision_mask = 411
+script = ExtResource( 38 )
+
+[node name="character" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+frame = 3
+
+[node name="weapon" parent="." groups=[
+"persist",
+] instance=ExtResource( 49 )]
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 9.86262, -23.3227, -0.756413, -23.5487, -13.4089, -13.9464, -13.7478, -1.2939, -2.88445, 19.9219, 9.05163, 20.0072, 13.3646, 13.0531, 13.7035, -17.6743 )
+
+[node name="combination_particles" type="Particles2D" parent="."]
+z_as_relative = false
+emitting = false
+amount = 30
+lifetime = 0.66
+explosiveness = 1.0
+process_material = SubResource( 4 )
+
+[node name="combination_timer" type="Timer" parent="combination_particles"]
+wait_time = 2.0
+one_shot = true
+
+[node name="weapon_label" type="Label" parent="."]
+margin_left = -0.112701
+margin_top = -47.458
+margin_right = -0.112701
+margin_bottom = -26.458
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dust" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 3.02932, 20.2614 )
+emitting = false
+amount = 20
+lifetime = 1.5
+process_material = SubResource( 10 )
+texture = ExtResource( 26 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -13.57
+margin_top = -38.9703
+margin_right = 26.43
+margin_bottom = -24.9703
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="debuff_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="scent_timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="scent_timeout_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="cc_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ability_1" type="Timer" parent="."]
+one_shot = true
+
+[node name="ability_2" type="Timer" parent="."]
+one_shot = true
+[connection signal="animation_finished" from="character" to="." method="_on_character_animation_finished"]
+[connection signal="timeout" from="combination_particles/combination_timer" to="." method="_on_combination_timer_timeout"]
+[connection signal="timeout" from="debuff_timer" to="." method="_on_debuff_timer_timeout"]
+[connection signal="timeout" from="scent_timer" to="." method="_on_scent_timer_timeout"]
+[connection signal="timeout" from="scent_timeout_timer" to="." method="_on_scent_timeout_timer_timeout"]
+[connection signal="timeout" from="cc_timer" to="." method="_on_cc_timer_timeout"]

@@ -1,0 +1,726 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://art/main menu assets/godot_popup/Highlights.PNG" type="Texture" id=1]
+[ext_resource path="res://art/main menu assets/godot_popup/godot-logo-text.svg" type="Texture" id=2]
+[ext_resource path="res://art/main menu assets/godot_popup/Bot.PNG" type="Texture" id=3]
+[ext_resource path="res://art/main menu assets/godot_popup/Eyes.PNG" type="Texture" id=4]
+[ext_resource path="res://scripts/godot_popup.gd" type="Script" id=5]
+[ext_resource path="res://art/main menu assets/studio.png" type="Texture" id=6]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=1]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=2]
+
+[sub_resource type="VisualShaderNodeScalarInterp" id=3]
+
+[sub_resource type="VisualShaderNodeScalarInterp" id=4]
+
+[sub_resource type="VisualShaderNodeVec3Constant" id=5]
+constant = Vector3( 0.234, -2.936, -3.068 )
+
+[sub_resource type="VisualShaderNodeVectorScalarMix" id=6]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=7]
+default_input_values = [ 0, 0.0, 1, -1.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarClamp" id=8]
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=9]
+constant = 0.2
+
+[sub_resource type="VisualShaderNodeInput" id=10]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeInput" id=11]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id=12]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=13]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id=14]
+
+[sub_resource type="VisualShaderNodeTexture" id=15]
+source = 5
+
+[sub_resource type="VisualShaderNodeInput" id=16]
+input_name = "texture"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=17]
+default_input_values = [ 0, 0.1, 1, 0.0 ]
+operator = 2
+
+[sub_resource type="OpenSimplexNoise" id=18]
+period = 66.5
+persistence = 0.0
+
+[sub_resource type="NoiseTexture" id=19]
+seamless = true
+noise = SubResource( 18 )
+
+[sub_resource type="VisualShaderNodeTexture" id=20]
+texture = SubResource( 19 )
+
+[sub_resource type="VisualShaderNodeVectorFunc" id=21]
+output_port_for_preview = 0
+function = 25
+
+[sub_resource type="VisualShaderNodeVectorOp" id=22]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeScalarClamp" id=23]
+
+[sub_resource type="OpenSimplexNoise" id=24]
+period = 210.0
+persistence = 1.0
+lacunarity = 2.3
+
+[sub_resource type="NoiseTexture" id=25]
+seamless = true
+noise = SubResource( 24 )
+
+[sub_resource type="VisualShaderNodeTexture" id=26]
+texture = SubResource( 25 )
+
+[sub_resource type="VisualShaderNodeVectorOp" id=27]
+output_port_for_preview = 0
+operator = 1
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=28]
+constant = 0.66
+
+[sub_resource type="VisualShaderNodeScalarOp" id=29]
+output_port_for_preview = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=30]
+default_input_values = [ 0, 0.0, 1, 1.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=31]
+uniform_name = "Strength"
+
+[sub_resource type="VisualShaderNodeVectorFunc" id=32]
+output_port_for_preview = 0
+function = 34
+
+[sub_resource type="VisualShaderNodeScalarOp" id=33]
+default_input_values = [ 0, 0.0, 1, 0.1 ]
+operator = 1
+
+[sub_resource type="VisualShaderNodeScalarFunc" id=34]
+function = 15
+
+[sub_resource type="VisualShaderNodeVec3Constant" id=35]
+constant = Vector3( 0.5, -2, -1 )
+
+[sub_resource type="VisualShaderNodeScalarOp" id=36]
+operator = 1
+
+[sub_resource type="VisualShaderNodeScalarClamp" id=37]
+
+[sub_resource type="VisualShaderNodeVectorOp" id=38]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id=39]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=40]
+operator = 5
+
+[sub_resource type="VisualShaderNodeScalarOp" id=41]
+default_input_values = [ 0, 0.0, 1, 1.0 ]
+
+[sub_resource type="VisualShaderNodeScalarFunc" id=42]
+function = 11
+
+[sub_resource type="VisualShaderNodeScalarOp" id=43]
+operator = 2
+
+[sub_resource type="VisualShader" id=44]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_6;
+uniform float Strength;
+uniform sampler2D tex_frg_55;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:5
+	vec3 n_out5p0 = vec3(UV, 0.0);
+
+// VectorDecompose:4
+	float n_out4p0 = n_out5p0.x;
+	float n_out4p1 = n_out5p0.y;
+	float n_out4p2 = n_out5p0.z;
+
+// Input:48
+	vec3 n_out48p0 = vec3(UV, 0.0);
+
+// Scalar:47
+	float n_out47p0 = 0.200000;
+
+// Input:49
+	float n_out49p0 = TIME;
+
+// ScalarOp:50
+	float n_out50p0 = n_out47p0 * n_out49p0;
+
+// VectorOp:51
+	vec3 n_out51p0 = n_out48p0 + vec3(n_out50p0);
+
+// Texture:6
+	vec4 tex_frg_6_read = texture(tex_frg_6, n_out51p0.xy);
+	vec3 n_out6p0 = tex_frg_6_read.rgb;
+	float n_out6p1 = tex_frg_6_read.a;
+
+// ScalarUniform:7
+	float n_out7p0 = Strength;
+
+// ScalarClamp:46
+	float n_in46p1 = 0.00000;
+	float n_in46p2 = 1.00000;
+	float n_out46p0 = clamp(n_out7p0, n_in46p1, n_in46p2);
+
+// ScalarOp:45
+	float n_in45p1 = -1.00000;
+	float n_out45p0 = n_out46p0 * n_in45p1;
+
+// ScalarOp:54
+	float n_in54p0 = 0.10000;
+	float n_out54p0 = n_in54p0 * n_out45p0;
+
+// ScalarMix:40
+	float n_out40p0 = mix(n_out4p0, dot(n_out6p0, vec3(0.333333, 0.333333, 0.333333)), n_out54p0);
+
+// ScalarMix:41
+	float n_out41p0 = mix(n_out4p1, dot(n_out6p0, vec3(0.333333, 0.333333, 0.333333)), n_out54p0);
+
+// VectorCompose:3
+	float n_in3p2 = 0.00000;
+	vec3 n_out3p0 = vec3(n_out40p0, n_out41p0, n_in3p2);
+
+// Input:53
+
+// Texture:52
+	vec3 n_out52p0;
+	float n_out52p1;
+	{
+		vec4 TEXTURE_tex_read = texture(TEXTURE, n_out3p0.xy);
+		n_out52p0 = TEXTURE_tex_read.rgb;
+		n_out52p1 = TEXTURE_tex_read.a;
+	}
+
+// Vector:42
+	vec3 n_out42p0 = vec3(0.234000, -2.936000, -3.068000);
+
+// VectorScalarMix:43
+	vec3 n_out43p0 = mix(n_out52p0, n_out42p0, n_out45p0);
+
+// Texture:55
+	vec4 tex_frg_55_read = texture(tex_frg_55, n_out51p0.xy);
+	vec3 n_out55p0 = tex_frg_55_read.rgb;
+	float n_out55p1 = tex_frg_55_read.a;
+
+// Scalar:61
+	float n_out61p0 = 0.660000;
+
+// VectorOp:60
+	vec3 n_out60p0 = n_out55p0 - vec3(n_out61p0);
+
+// ScalarOp:66
+	float n_in66p1 = 1.00000;
+	float n_out66p0 = n_out46p0 * n_in66p1;
+
+// ScalarOp:81
+	float n_in81p1 = 1.00000;
+	float n_out81p0 = n_out66p0 + n_in81p1;
+
+// ScalarOp:80
+	float n_out80p0 = pow(n_out66p0, n_out81p0);
+
+// ScalarFunc:82
+	float n_out82p0 = sqrt(n_out81p0);
+
+// ScalarOp:83
+	float n_out83p0 = n_out80p0 * n_out82p0;
+
+// VectorOp:57
+	vec3 n_out57p0 = n_out60p0 + vec3(n_out83p0);
+
+// VectorFunc:70
+	vec3 n_out70p0 = vec3(1.0, 1.0, 1.0) - n_out57p0;
+
+// ScalarOp:71
+	float n_in71p1 = 0.10000;
+	float n_out71p0 = dot(n_out70p0, vec3(0.333333, 0.333333, 0.333333)) - n_in71p1;
+
+// ScalarFunc:72
+	float n_out72p0 = round(n_out71p0);
+
+// ScalarClamp:77
+	float n_in77p1 = 0.00000;
+	float n_in77p2 = 1.00000;
+	float n_out77p0 = clamp(n_out72p0, n_in77p1, n_in77p2);
+
+// VectorFunc:56
+	vec3 n_out56p0 = round(n_out70p0);
+
+// ScalarClamp:59
+	float n_in59p1 = 0.00000;
+	float n_in59p2 = 1.00000;
+	float n_out59p0 = clamp(dot(n_out56p0, vec3(0.333333, 0.333333, 0.333333)), n_in59p1, n_in59p2);
+
+// ScalarOp:76
+	float n_out76p0 = n_out77p0 - n_out59p0;
+
+// Vector:75
+	vec3 n_out75p0 = vec3(0.500000, -2.000000, -1.000000);
+
+// VectorOp:78
+	vec3 n_out78p0 = vec3(n_out76p0) * n_out75p0;
+
+// VectorOp:79
+	vec3 n_out79p0 = n_out43p0 + n_out78p0;
+
+// ScalarOp:63
+	float n_out63p0 = n_out52p1 * n_out59p0;
+
+// Output:0
+	COLOR.rgb = n_out79p0;
+	COLOR.a = n_out63p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 0, 475 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 1280, 140 )
+nodes/fragment/3/node = SubResource( 1 )
+nodes/fragment/3/position = Vector2( -180, -20 )
+nodes/fragment/4/node = SubResource( 2 )
+nodes/fragment/4/position = Vector2( -1120, -200 )
+nodes/fragment/5/node = SubResource( 12 )
+nodes/fragment/5/position = Vector2( -1300, -200 )
+nodes/fragment/6/node = SubResource( 26 )
+nodes/fragment/6/position = Vector2( -1080, 20 )
+nodes/fragment/7/node = SubResource( 31 )
+nodes/fragment/7/position = Vector2( -1520, 400 )
+nodes/fragment/40/node = SubResource( 3 )
+nodes/fragment/40/position = Vector2( -700, -280 )
+nodes/fragment/41/node = SubResource( 4 )
+nodes/fragment/41/position = Vector2( -720, -160 )
+nodes/fragment/42/node = SubResource( 5 )
+nodes/fragment/42/position = Vector2( 320, -180 )
+nodes/fragment/43/node = SubResource( 6 )
+nodes/fragment/43/position = Vector2( 740, 20 )
+nodes/fragment/45/node = SubResource( 7 )
+nodes/fragment/45/position = Vector2( -1320, 220 )
+nodes/fragment/46/node = SubResource( 8 )
+nodes/fragment/46/position = Vector2( -1320, 400 )
+nodes/fragment/47/node = SubResource( 9 )
+nodes/fragment/47/position = Vector2( -1760, 60 )
+nodes/fragment/48/node = SubResource( 10 )
+nodes/fragment/48/position = Vector2( -1560, -60 )
+nodes/fragment/49/node = SubResource( 11 )
+nodes/fragment/49/position = Vector2( -1740, 140 )
+nodes/fragment/50/node = SubResource( 13 )
+nodes/fragment/50/position = Vector2( -1540, 80 )
+nodes/fragment/51/node = SubResource( 14 )
+nodes/fragment/51/position = Vector2( -1320, 60 )
+nodes/fragment/52/node = SubResource( 15 )
+nodes/fragment/52/position = Vector2( 480, 260 )
+nodes/fragment/53/node = SubResource( 16 )
+nodes/fragment/53/position = Vector2( 240, 380 )
+nodes/fragment/54/node = SubResource( 17 )
+nodes/fragment/54/position = Vector2( -1100, -100 )
+nodes/fragment/55/node = SubResource( 20 )
+nodes/fragment/55/position = Vector2( -560, 300 )
+nodes/fragment/56/node = SubResource( 21 )
+nodes/fragment/56/position = Vector2( 320, 480 )
+nodes/fragment/57/node = SubResource( 22 )
+nodes/fragment/57/position = Vector2( -140, 480 )
+nodes/fragment/59/node = SubResource( 23 )
+nodes/fragment/59/position = Vector2( 540, 480 )
+nodes/fragment/60/node = SubResource( 27 )
+nodes/fragment/60/position = Vector2( -360, 480 )
+nodes/fragment/61/node = SubResource( 28 )
+nodes/fragment/61/position = Vector2( -760, 600 )
+nodes/fragment/63/node = SubResource( 29 )
+nodes/fragment/63/position = Vector2( 780, 360 )
+nodes/fragment/66/node = SubResource( 30 )
+nodes/fragment/66/position = Vector2( -980, 820 )
+nodes/fragment/70/node = SubResource( 32 )
+nodes/fragment/70/position = Vector2( 80, 480 )
+nodes/fragment/71/node = SubResource( 33 )
+nodes/fragment/71/position = Vector2( 80, 720 )
+nodes/fragment/72/node = SubResource( 34 )
+nodes/fragment/72/position = Vector2( 300, 720 )
+nodes/fragment/75/node = SubResource( 35 )
+nodes/fragment/75/position = Vector2( 560, 860 )
+nodes/fragment/76/node = SubResource( 36 )
+nodes/fragment/76/position = Vector2( 780, 660 )
+nodes/fragment/77/node = SubResource( 37 )
+nodes/fragment/77/position = Vector2( 520, 700 )
+nodes/fragment/78/node = SubResource( 38 )
+nodes/fragment/78/position = Vector2( 1060, 640 )
+nodes/fragment/79/node = SubResource( 39 )
+nodes/fragment/79/position = Vector2( 1040, 140 )
+nodes/fragment/80/node = SubResource( 40 )
+nodes/fragment/80/position = Vector2( -540, 820 )
+nodes/fragment/81/node = SubResource( 41 )
+nodes/fragment/81/position = Vector2( -800, 980 )
+nodes/fragment/82/node = SubResource( 42 )
+nodes/fragment/82/position = Vector2( -522.75, 1008.75 )
+nodes/fragment/83/node = SubResource( 43 )
+nodes/fragment/83/position = Vector2( -280, 880 )
+nodes/fragment/connections = PoolIntArray( 5, 0, 4, 0, 4, 0, 40, 0, 40, 0, 3, 0, 4, 1, 41, 0, 41, 0, 3, 1, 6, 0, 40, 1, 45, 0, 43, 2, 46, 0, 45, 0, 48, 0, 51, 0, 47, 0, 50, 0, 50, 0, 51, 1, 51, 0, 6, 0, 49, 0, 50, 1, 6, 0, 41, 1, 53, 0, 52, 2, 52, 0, 43, 0, 3, 0, 52, 0, 54, 0, 40, 2, 54, 0, 41, 2, 55, 0, 60, 0, 61, 0, 60, 1, 52, 1, 63, 0, 57, 0, 70, 0, 51, 0, 55, 0, 59, 0, 63, 1, 56, 0, 59, 0, 70, 0, 56, 0, 60, 0, 57, 0, 71, 0, 72, 0, 7, 0, 46, 0, 42, 0, 43, 1, 72, 0, 77, 0, 77, 0, 76, 0, 59, 0, 76, 1, 63, 0, 0, 1, 75, 0, 78, 1, 76, 0, 78, 0, 43, 0, 79, 0, 78, 0, 79, 1, 70, 0, 71, 0, 79, 0, 0, 0, 45, 0, 54, 1, 46, 0, 66, 0, 66, 0, 80, 0, 66, 0, 81, 0, 81, 0, 80, 1, 81, 0, 82, 0, 80, 0, 83, 0, 82, 0, 83, 1, 83, 0, 57, 1 )
+
+[sub_resource type="ShaderMaterial" id=45]
+shader = SubResource( 44 )
+shader_param/Strength = 1.0
+
+[sub_resource type="Animation" id=46]
+length = 4.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton/Root/EyeRight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton/Root/EyeRight:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.786569, 1.12035 ), Vector2( 1.07883, 0.975046 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton/Root/PupilLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( -29.4416, -2.26474 ), Vector2( -29.4416, -2.26474 ), Vector2( -29.4415, 0.993744 ), Vector2( -30.2775, -2.88672 ), Vector2( -29.4416, -2.26474 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton/Root/PupilLeft:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.369988, 1.07291 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton/Root/EyeLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, 1 ),
+"update": 0,
+"values": [ Vector2( -31.3828, 4.85303 ), Vector2( -31.3828, 4.85303 ), Vector2( -31.3828, 4.85303 ), Vector2( -31.3828, 4.85303 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton/Root/EyeLeft:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.775082, 1.06048 ), Vector2( 1.10825, 0.884834 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton/Root/PupilRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 29.4417, -2.26474 ), Vector2( 29.4417, -2.26474 ), Vector2( 29.4417, 0.812714 ), Vector2( 29.4417, -2.08371 ), Vector2( 29.4417, -2.26474 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton/Root/PupilRight:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.339253, 1.0218 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton/Root:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.45, 2.55 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 640.729, 283.489 ), Vector2( 640.729, 283.489 ), Vector2( 640.729, 284.627 ), Vector2( 640.729, 280.076 ), Vector2( 640.729, 283.489 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton/Root:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2.25, 2.3, 2.45, 2.55 ),
+"transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 1.12639, 1.12639 ), Vector2( 1.12639, 1.12639 ), Vector2( 1.15915, 1.09652 ), Vector2( 1.11054, 1.16841 ), Vector2( 1.12639, 1.12639 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("GodotPolygons:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("GodotPolygons:material:shader_param/Strength")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.05, 1.8, 3, 4.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0, 0.0, 1.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("GodotPolygons/godot-logo-text:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.1, 1.8, 3.3, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("GodotPolygons/godot-logo-text:position")
+tracks/13/interp = 2
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1.1, 2.05, 3.45, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 625, 500 ), Vector2( 625, 459.83 ), Vector2( 625, 459.83 ), Vector2( 625, 500 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("your-studio:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("GodotPolygons/godot-logo-text:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.1, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=47]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("your-studio:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("your-studio:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 3, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GodotPolygons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="godot_popup" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="your-studio" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 506.644, 298.982 )
+texture = ExtResource( 6 )
+
+[node name="GodotPolygons" type="Node2D" parent="."]
+material = SubResource( 45 )
+position = Vector2( -125.963, -45.9692 )
+
+[node name="Bot" type="Polygon2D" parent="GodotPolygons"]
+use_parent_material = true
+position = Vector2( 565.832, 205.681 )
+texture = ExtResource( 3 )
+skeleton = NodePath("../../Skeleton")
+polygon = PoolVector2Array( 72.8813, 145.198, 33.0508, 142.655, 0.564972, 114.689, -6.77966, 57.3446, 2.54237, 26.2712, 47.7401, -3.67232, 100.282, -2.54237, 144.35, 28.5311, 152.825, 59.322, 145.48, 122.316, 111.582, 144.915, 42.963, 91.2963, 35.1852, 89.0741, 28.5185, 82.7778, 25.5556, 74.2593, 28.1481, 65, 35.5556, 58.8889, 43.1481, 57.7778, 52.4074, 59.2593, 57.7778, 64.6296, 61.1111, 74.8148, 57.7778, 84.0741, 50.3704, 90.3704, 42.5926, 94.4444, 33.1481, 91.1111, 25.9259, 84.4444, 22.7778, 75, 25.1852, 63.8889, 34.0741, 55.7407, 43.7037, 54.0741, 53.3333, 55.7407, 60.7407, 62.5926, 64.4444, 75.1852, 60.5556, 86.4815, 51.4815, 93.1481, 104.815, 91.8519, 95.5555, 90, 89.8148, 83.5185, 87.2222, 74.2593, 89.2593, 64.4444, 95.5555, 56.8519, 105, 55.1852, 114.444, 58.1481, 120.37, 65.1852, 121.296, 74.4444, 118.889, 84.0741, 112.778, 89.6296, 104.444, 52.037, 116.481, 55.9259, 123.519, 64.0741, 123.704, 75, 121.111, 85.3704, 113.889, 91.8519, 105.185, 94.8148, 93.8889, 91.8519, 87.2222, 84.2593, 85.1852, 74.6296, 87.037, 62.963, 94.8148, 54.0741, 42.7481, 74.5547, 104.835, 74.3002 )
+uv = PoolVector2Array( 72.8813, 145.198, 33.0508, 142.655, 0.564972, 114.689, -6.77966, 57.3446, 2.54237, 26.2712, 47.7401, -3.67232, 100.282, -2.54237, 144.35, 28.5311, 152.825, 59.322, 145.48, 122.316, 111.582, 144.915, 42.963, 91.2963, 35.1852, 89.0741, 28.5185, 82.7778, 25.5556, 74.2593, 28.1481, 65, 35.5556, 58.8889, 43.1481, 57.7778, 52.4074, 59.2593, 57.7778, 64.6296, 61.1111, 74.8148, 57.7778, 84.0741, 50.3704, 90.3704, 42.5926, 94.4444, 33.1481, 91.1111, 25.9259, 84.4444, 22.7778, 75, 25.1852, 63.8889, 34.0741, 55.7407, 43.7037, 54.0741, 53.3333, 55.7407, 60.7407, 62.5926, 64.4444, 75.1852, 60.5556, 86.4815, 51.4815, 93.1481, 104.815, 91.8519, 95.5555, 90, 89.8148, 83.5185, 87.2222, 74.2593, 89.2593, 64.4444, 95.5555, 56.8519, 105, 55.1852, 114.444, 58.1481, 120.37, 65.1852, 121.296, 74.4444, 118.889, 84.0741, 112.778, 89.6296, 104.444, 52.037, 116.481, 55.9259, 123.519, 64.0741, 123.704, 75, 121.111, 85.3704, 113.889, 91.8519, 105.185, 94.8148, 93.8889, 91.8519, 87.2222, 84.2593, 85.1852, 74.6296, 87.037, 62.963, 94.8148, 54.0741, 42.7481, 74.5547, 104.835, 74.3002 )
+polygons = [ PoolIntArray( 12, 59, 11 ), PoolIntArray( 12, 13, 59 ), PoolIntArray( 13, 14, 59 ), PoolIntArray( 14, 15, 59 ), PoolIntArray( 15, 16, 59 ), PoolIntArray( 16, 17, 59 ), PoolIntArray( 17, 18, 59 ), PoolIntArray( 18, 19, 59 ), PoolIntArray( 19, 20, 59 ), PoolIntArray( 20, 21, 59 ), PoolIntArray( 21, 22, 59 ), PoolIntArray( 22, 11, 59 ), PoolIntArray( 23, 12, 11 ), PoolIntArray( 24, 12, 23 ), PoolIntArray( 24, 12, 13 ), PoolIntArray( 25, 24, 13 ), PoolIntArray( 14, 25, 13 ), PoolIntArray( 14, 26, 25 ), PoolIntArray( 14, 15, 26 ), PoolIntArray( 27, 15, 26 ), PoolIntArray( 27, 15, 16 ), PoolIntArray( 27, 16, 28 ), PoolIntArray( 16, 17, 28 ), PoolIntArray( 28, 29, 17 ), PoolIntArray( 29, 18, 17 ), PoolIntArray( 29, 30, 18 ), PoolIntArray( 30, 19, 18 ), PoolIntArray( 19, 31, 30 ), PoolIntArray( 20, 31, 32 ), PoolIntArray( 19, 31, 20 ), PoolIntArray( 32, 33, 21 ), PoolIntArray( 20, 32, 21 ), PoolIntArray( 11, 22, 34 ), PoolIntArray( 22, 21, 33 ), PoolIntArray( 22, 34, 33 ), PoolIntArray( 34, 23, 11 ), PoolIntArray( 60, 36, 35 ), PoolIntArray( 60, 46, 35 ), PoolIntArray( 60, 45, 46 ), PoolIntArray( 44, 60, 45 ), PoolIntArray( 44, 43, 60 ), PoolIntArray( 43, 42, 60 ), PoolIntArray( 42, 41, 60 ), PoolIntArray( 41, 40, 60 ), PoolIntArray( 40, 39, 60 ), PoolIntArray( 39, 38, 60 ), PoolIntArray( 38, 37, 60 ), PoolIntArray( 37, 36, 60 ), PoolIntArray( 36, 54, 37 ), PoolIntArray( 37, 55, 38 ), PoolIntArray( 38, 56, 39 ), PoolIntArray( 39, 57, 40 ), PoolIntArray( 40, 58, 41 ), PoolIntArray( 41, 47, 42 ), PoolIntArray( 42, 48, 43 ), PoolIntArray( 43, 49, 44 ), PoolIntArray( 44, 50, 45 ), PoolIntArray( 45, 51, 46 ), PoolIntArray( 46, 52, 35 ), PoolIntArray( 35, 53, 36 ), PoolIntArray( 53, 35, 52 ), PoolIntArray( 52, 46, 51 ), PoolIntArray( 51, 45, 50 ), PoolIntArray( 49, 44, 50 ), PoolIntArray( 49, 43, 48 ), PoolIntArray( 48, 42, 47 ), PoolIntArray( 47, 41, 58 ), PoolIntArray( 58, 40, 57 ), PoolIntArray( 57, 39, 56 ), PoolIntArray( 55, 54, 37 ), PoolIntArray( 54, 36, 53 ), PoolIntArray( 56, 55, 38 ), PoolIntArray( 24, 2, 1 ), PoolIntArray( 24, 23, 1 ), PoolIntArray( 24, 25, 2 ), PoolIntArray( 26, 2, 25 ), PoolIntArray( 3, 26, 2 ), PoolIntArray( 3, 27, 26 ), PoolIntArray( 4, 27, 3 ), PoolIntArray( 4, 28, 27 ), PoolIntArray( 28, 5, 4 ), PoolIntArray( 28, 29, 5 ), PoolIntArray( 29, 30, 5 ), PoolIntArray( 30, 5, 31 ), PoolIntArray( 57, 58, 6 ), PoolIntArray( 58, 47, 6 ), PoolIntArray( 47, 6, 48 ), PoolIntArray( 48, 7, 6 ), PoolIntArray( 48, 7, 49 ), PoolIntArray( 8, 49, 7 ), PoolIntArray( 49, 8, 50 ), PoolIntArray( 50, 8, 9 ), PoolIntArray( 51, 9, 50 ), PoolIntArray( 52, 9, 51 ), PoolIntArray( 53, 10, 52 ), PoolIntArray( 9, 52, 10 ), PoolIntArray( 23, 0, 34 ), PoolIntArray( 0, 1, 23 ), PoolIntArray( 0, 53, 10 ), PoolIntArray( 0, 54, 53 ), PoolIntArray( 33, 0, 34 ), PoolIntArray( 55, 0, 54 ), PoolIntArray( 33, 55, 0 ), PoolIntArray( 55, 32, 33 ), PoolIntArray( 56, 32, 55 ), PoolIntArray( 56, 31, 32 ), PoolIntArray( 56, 31, 57 ), PoolIntArray( 57, 5, 31 ), PoolIntArray( 6, 5, 57 ) ]
+bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.47, 0.47, 0.47, 1, 1, 1, 1, 1, 1, 1, 0.47, 0.47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.47, 0.47, 0.47, 0.47, 0.47, 1, 1, 1, 0, 0 ), NodePath("Root/PupilRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0.47, 0.47, 0, 0.47, 0.47, 0, 0, 0, 0, 1 ), NodePath("Root/PupilLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.47, 0.47, 0.47, 0, 0, 0, 0, 0, 0, 0, 0.47, 0.47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ) ]
+internal_vertex_count = 50
+
+[node name="PupilL" type="Polygon2D" parent="GodotPolygons"]
+use_parent_material = true
+position = Vector2( 600.653, 270.499 )
+texture = ExtResource( 4 )
+skeleton = NodePath("../../Skeleton")
+polygon = PoolVector2Array( 10.1781, 23.4097, 2.29008, 21.1196, -4.3257, 12.4682, 0.254456, 1.52672, 10.1781, -3.30788, 19.8473, 0.763359, 25.6997, 10.4326, 22.1374, 20.1018 )
+uv = PoolVector2Array( 10.1781, 23.4097, 2.29008, 21.1196, -4.3257, 12.4682, 0.254456, 1.52672, 10.1781, -3.30788, 19.8473, 0.763359, 25.6997, 10.4326, 22.1374, 20.1018 )
+bones = [ NodePath("Root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilLeft"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="PupilR" type="Polygon2D" parent="GodotPolygons"]
+use_parent_material = true
+position = Vector2( 600.653, 270.499 )
+texture = ExtResource( 4 )
+skeleton = NodePath("../../Skeleton")
+polygon = PoolVector2Array( 69.2112, 23.1552, 59.0331, 18.5751, 56.4885, 9.92366, 61.0687, 1.01781, 70.229, -1.78117, 80.4071, 2.54453, 83.2061, 10.1781, 79.1349, 20.8651 )
+uv = PoolVector2Array( 69.2112, 23.1552, 59.0331, 18.5751, 56.4885, 9.92366, 61.0687, 1.01781, 70.229, -1.78117, 80.4071, 2.54453, 83.2061, 10.1781, 79.1349, 20.8651 )
+bones = [ NodePath("Root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilRight"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="Highlights" type="Polygon2D" parent="GodotPolygons"]
+use_parent_material = true
+position = Vector2( 599.421, 270.164 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton")
+polygon = PoolVector2Array( -9.99999, 20, -9.99999, -10, 80, -10, 80, 20 )
+uv = PoolVector2Array( -9.99999, 20, -9.99999, -10, 80, -10, 80, 20 )
+bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1 ), NodePath("Root/PupilRight"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Root/PupilLeft"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0 ) ]
+
+[node name="godot-logo-text" type="Sprite" parent="GodotPolygons"]
+visible = false
+modulate = Color( 1, 1, 1, 0.75 )
+position = Vector2( 597.704, 449.624 )
+texture = ExtResource( 2 )
+
+[node name="Skeleton" type="Skeleton2D" parent="."]
+visible = false
+
+[node name="Root" type="Bone2D" parent="Skeleton"]
+position = Vector2( 640.729, 283.489 )
+scale = Vector2( 1.12639, 1.12639 )
+rest = Transform2D( 1, 0, 0, 1, 640.729, 283.489 )
+
+[node name="PupilRight" type="Bone2D" parent="Skeleton/Root"]
+position = Vector2( 29.4417, -2.26474 )
+rotation = -1.57079
+rest = Transform2D( 2.22127e-06, -1, 1, 2.22127e-06, 29.4417, -2.26474 )
+
+[node name="EyeRight" type="Bone2D" parent="Skeleton/Root"]
+position = Vector2( 30.7358, 6.79419 )
+rotation = 1.57079
+rest = Transform2D( 2.22127e-06, 1, -1, 2.22127e-06, 30.7358, 6.79419 )
+
+[node name="PupilLeft" type="Bone2D" parent="Skeleton/Root"]
+position = Vector2( -29.4416, -2.26474 )
+rotation = -1.57079
+rest = Transform2D( 2.22127e-06, -1, 1, 2.22127e-06, -29.4416, -2.26474 )
+
+[node name="EyeLeft" type="Bone2D" parent="Skeleton/Root"]
+position = Vector2( -31.3828, 4.85303 )
+rotation = 1.57079
+rest = Transform2D( 2.22127e-06, 1, -1, 2.22127e-06, -31.3828, 4.85303 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show_godot = SubResource( 46 )
+anims/show_studio = SubResource( 47 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_right = 1031.0
+margin_bottom = 607.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

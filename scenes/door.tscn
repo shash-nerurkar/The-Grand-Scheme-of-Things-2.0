@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/door.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ null ],
+"loop": true,
+"name": "front_open_state",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "side_open_state",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null, null ],
+"loop": false,
+"name": "front_close",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null, null ],
+"loop": false,
+"name": "front_open",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null, null ],
+"loop": false,
+"name": "side_close",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, null, null ],
+"loop": false,
+"name": "side_open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.1209, 18.2774 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+z_index = -1
+collision_layer = 16
+collision_mask = 47
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "side_open_state"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 13.5054 )
+shape = SubResource( 2 )
+disabled = true

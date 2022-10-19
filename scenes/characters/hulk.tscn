@@ -1,0 +1,368 @@
+[gd_scene load_steps=91 format=2]
+
+[ext_resource path="res://art/hulk/smash/hulk_smash_17.png" type="Texture" id=1]
+[ext_resource path="res://art/hulk/smash/hulk_smash_15.png" type="Texture" id=2]
+[ext_resource path="res://art/hulk/smash/hulk_smash_1.png" type="Texture" id=3]
+[ext_resource path="res://art/hulk/smash/hulk_smash_11.png" type="Texture" id=4]
+[ext_resource path="res://art/hulk/run/hulk_run_3.png" type="Texture" id=5]
+[ext_resource path="res://art/hulk/smash/hulk_smash_8.png" type="Texture" id=6]
+[ext_resource path="res://art/hulk/smash/hulk_smash_10.png" type="Texture" id=7]
+[ext_resource path="res://art/hulk/smash/hulk_smash_16.png" type="Texture" id=8]
+[ext_resource path="res://art/hulk/smash/hulk_smash_4.png" type="Texture" id=9]
+[ext_resource path="res://art/hulk/chuck/2.png" type="Texture" id=10]
+[ext_resource path="res://art/hulk/smash/hulk_smash_12.png" type="Texture" id=11]
+[ext_resource path="res://art/hulk/smash/hulk_smash_19.png" type="Texture" id=12]
+[ext_resource path="res://art/hulk/smash/hulk_smash_7.png" type="Texture" id=13]
+[ext_resource path="res://art/hulk/smash/hulk_smash_9.png" type="Texture" id=14]
+[ext_resource path="res://art/hulk/chuck/1.png" type="Texture" id=15]
+[ext_resource path="res://art/hulk/run/hulk_run_5.png" type="Texture" id=16]
+[ext_resource path="res://art/hulk/run/hulk_run_6.png" type="Texture" id=17]
+[ext_resource path="res://art/hulk/run/hulk_run_4.png" type="Texture" id=18]
+[ext_resource path="res://art/hulk/smash/hulk_smash_2.png" type="Texture" id=19]
+[ext_resource path="res://art/hulk/smash/hulk_smash_13.png" type="Texture" id=20]
+[ext_resource path="res://art/hulk/smash/hulk_smash_18.png" type="Texture" id=21]
+[ext_resource path="res://art/hulk/smash/hulk_smash_3.png" type="Texture" id=22]
+[ext_resource path="res://art/hulk/run/hulk_run_7.png" type="Texture" id=23]
+[ext_resource path="res://art/hulk/smash/hulk_smash_14.png" type="Texture" id=24]
+[ext_resource path="res://art/hulk/smash/hulk_smash_6.png" type="Texture" id=25]
+[ext_resource path="res://art/hulk/run/hulk_run_8.png" type="Texture" id=26]
+[ext_resource path="res://art/hulk/smash/hulk_smash_5.png" type="Texture" id=27]
+[ext_resource path="res://art/hulk/chuck/4.png" type="Texture" id=28]
+[ext_resource path="res://art/hulk/idle/hulk_2.png" type="Texture" id=29]
+[ext_resource path="res://art/hulk/idle/hulk_3.png" type="Texture" id=30]
+[ext_resource path="res://art/hulk/idle/hulk_5.png" type="Texture" id=31]
+[ext_resource path="res://art/hulk/idle/hulk_1.png" type="Texture" id=32]
+[ext_resource path="res://art/hulk/idle/hulk_4.png" type="Texture" id=33]
+[ext_resource path="res://scripts/hulk.gd" type="Script" id=34]
+[ext_resource path="res://scenes/weapon.tscn" type="PackedScene" id=35]
+[ext_resource path="res://art/hulk/chuck/6.png" type="Texture" id=36]
+[ext_resource path="res://art/hulk/run/hulk_run_1.png" type="Texture" id=37]
+[ext_resource path="res://art/hulk/run/hulk_run_2.png" type="Texture" id=38]
+[ext_resource path="res://art/hulk/chuck/3.png" type="Texture" id=39]
+[ext_resource path="res://art/hulk/chuck/5.png" type="Texture" id=40]
+[ext_resource path="res://art/hulk/abilities/green_dungeon/shield/sprout_10.png" type="Texture" id=41]
+[ext_resource path="res://art/hulk/hand/hand_4.png" type="Texture" id=44]
+[ext_resource path="res://art/hulk/hand/hand_1.png" type="Texture" id=49]
+[ext_resource path="res://art/death/6.png" type="Texture" id=54]
+[ext_resource path="res://art/hulk/hand/hand_3.png" type="Texture" id=59]
+[ext_resource path="res://art/hulk/hand/hand_5.png" type="Texture" id=61]
+[ext_resource path="res://scripts/rock.gd" type="Script" id=65]
+[ext_resource path="res://scripts/hulk_shield.gd" type="Script" id=75]
+[ext_resource path="res://art/hulk/hand/hand_2.png" type="Texture" id=78]
+[ext_resource path="res://art/hulk/rise_up/rise_1.png" type="Texture" id=79]
+[ext_resource path="res://art/hulk/rise_up/rise_5.png" type="Texture" id=80]
+[ext_resource path="res://art/hulk/rise_up/rise_6.png" type="Texture" id=81]
+[ext_resource path="res://art/hulk/rise_up/rise_10.png" type="Texture" id=82]
+[ext_resource path="res://art/hulk/rise_up/rise_2.png" type="Texture" id=83]
+[ext_resource path="res://art/hulk/rise_up/rise_9.png" type="Texture" id=84]
+[ext_resource path="res://art/hulk/rise_up/rise_3.png" type="Texture" id=85]
+[ext_resource path="res://art/hulk/rise_up/rise_8.png" type="Texture" id=86]
+[ext_resource path="res://art/hulk/rise_up/rise_4.png" type="Texture" id=87]
+[ext_resource path="res://art/hulk/rise_up/rise_7.png" type="Texture" id=88]
+[ext_resource path="res://art/hulk/hand/hand_run_1.png" type="Texture" id=89]
+[ext_resource path="res://art/hulk/hand/hand_run_2.png" type="Texture" id=90]
+[ext_resource path="res://art/death/7.png" type="Texture" id=119]
+[ext_resource path="res://art/death/10.png" type="Texture" id=120]
+[ext_resource path="res://art/death/4.png" type="Texture" id=121]
+[ext_resource path="res://art/death/5.png" type="Texture" id=122]
+[ext_resource path="res://art/death/9.png" type="Texture" id=123]
+[ext_resource path="res://art/death/2.png" type="Texture" id=124]
+[ext_resource path="res://art/death/1.png" type="Texture" id=125]
+[ext_resource path="res://art/death/11.png" type="Texture" id=126]
+[ext_resource path="res://art/death/3.png" type="Texture" id=127]
+[ext_resource path="res://art/death/8.png" type="Texture" id=128]
+[ext_resource path="res://art/death/13.png" type="Texture" id=129]
+[ext_resource path="res://art/death/14.png" type="Texture" id=130]
+[ext_resource path="res://art/death/12.png" type="Texture" id=131]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=132]
+[ext_resource path="res://art/particles/smoke.png" type="Texture" id=133]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 125 ), ExtResource( 124 ), ExtResource( 127 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 54 ), ExtResource( 119 ), ExtResource( 128 ), ExtResource( 123 ), ExtResource( 120 ), ExtResource( 126 ), ExtResource( 131 ), ExtResource( 129 ), ExtResource( 130 ) ],
+"loop": false,
+"name": "death",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "chuck_rock_2",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 39 ), ExtResource( 28 ), ExtResource( 40 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "chuck_end",
+"speed": 25.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "chuck_rock",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 9 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "test",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 21 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "smash",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 87 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 88 ), ExtResource( 86 ), ExtResource( 84 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "rise_up",
+"speed": 25.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "chuck_shield",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 49 ), ExtResource( 78 ), ExtResource( 59 ), ExtResource( 44 ), ExtResource( 61 ), ExtResource( 61 ), ExtResource( 44 ), ExtResource( 59 ), ExtResource( 78 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 89 ), ExtResource( 89 ), ExtResource( 89 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 90 ), ExtResource( 90 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.482955, 1 )
+colors = PoolColorArray( 1, 0.5625, 0, 1, 0.98402, 0.322882, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 90.0
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 70.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+color_ramp = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 132 )
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 0.144531, 0.0547638, 0.0547638, 1, 0.145098, 0.054902, 0.054902, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0.00502513, 0.381818 ), 0.0, 0.0, 0, 0, Vector2( 0.984925, 0.690909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 2
+emission_box_extents = Vector3( 6, 1, 0 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 5.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 8 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "broken",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "break_1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ) ],
+"loop": false,
+"name": "sprout",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "rock_fly",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "shield_fly",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "explosion",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 16.1574
+
+[node name="player" type="KinematicBody2D" groups=[
+"persist",
+"player",
+]]
+collision_mask = 410
+script = ExtResource( 34 )
+
+[node name="character" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+frame = 4
+
+[node name="weapon" parent="." groups=[
+"persist",
+] instance=ExtResource( 35 )]
+position = Vector2( -4.69125, 2.26474 )
+scale = Vector2( 1, 1 )
+input_pickable = false
+
+[node name="hand" type="AnimatedSprite" parent="."]
+position = Vector2( -16.1616, -1.02055 )
+frames = SubResource( 2 )
+animation = "idle"
+frame = 4
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 10.16, -19.2966, -1.1793, -19.3819, -15.0763, -11.1971, -15.2468, 0.738958, -2.88445, 19.9219, 9.05163, 20.0072, 15.2754, 13.5276, 14.0818, -12.817 )
+
+[node name="shield_detector" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 128
+
+[node name="combination_particles" type="Particles2D" parent="."]
+z_index = 31
+emitting = false
+amount = 30
+lifetime = 0.66
+explosiveness = 1.0
+process_material = SubResource( 5 )
+
+[node name="combination_timer" type="Timer" parent="combination_particles"]
+wait_time = 2.0
+one_shot = true
+
+[node name="weapon_label" type="Label" parent="."]
+margin_left = -2.04924
+margin_top = -58.0514
+margin_right = -2.04924
+margin_bottom = -44.0514
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 6 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dust" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( -4.59149, 32.9382 )
+emitting = false
+amount = 36
+process_material = SubResource( 11 )
+texture = ExtResource( 133 )
+
+[node name="ability_nodes_container" type="Node" parent="."]
+
+[node name="hulk_shield" type="KinematicBody2D" parent="ability_nodes_container" groups=[
+"hulk_shield",
+"player_friendly",
+"wall",
+]]
+visible = false
+collision_layer = 128
+collision_mask = 63
+script = ExtResource( 75 )
+
+[node name="sprite" type="AnimatedSprite" parent="ability_nodes_container/hulk_shield"]
+frames = SubResource( 12 )
+animation = "sprout"
+playing = true
+
+[node name="collision" type="CollisionPolygon2D" parent="ability_nodes_container/hulk_shield"]
+position = Vector2( 35.262, 10.6426 )
+polygon = PoolVector2Array( -0.843056, -25.9522, 29.5153, 17.8813, -33.9294, 17.0696 )
+disabled = true
+
+[node name="throwable" type="Area2D" parent="ability_nodes_container"]
+visible = false
+collision_layer = 4
+collision_mask = 80
+script = ExtResource( 65 )
+
+[node name="rock_shield" type="AnimatedSprite" parent="ability_nodes_container/throwable"]
+z_index = 2
+frames = SubResource( 13 )
+animation = "rock_fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ability_nodes_container/throwable"]
+position = Vector2( 0.625772, -0.71119 )
+shape = SubResource( 14 )
+
+[node name="erp_timer" type="Timer" parent="ability_nodes_container/throwable"]
+wait_time = 0.32
+one_shot = true
+
+[node name="scent_timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="scent_timeout_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="cc_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ability_1" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ability_2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="animation_finished" from="character" to="." method="_on_character_animation_finished"]
+[connection signal="timeout" from="combination_particles/combination_timer" to="." method="_on_combination_timer_timeout"]
+[connection signal="animation_finished" from="ability_nodes_container/hulk_shield/sprite" to="ability_nodes_container/hulk_shield" method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="ability_nodes_container/throwable" to="ability_nodes_container/throwable" method="_on_throwable_body_entered"]
+[connection signal="animation_finished" from="ability_nodes_container/throwable/rock_shield" to="ability_nodes_container/throwable" method="_on_rock_shield_animation_finished"]
+[connection signal="timeout" from="ability_nodes_container/throwable/erp_timer" to="ability_nodes_container/throwable" method="_on_erp_timer_timeout"]
+[connection signal="timeout" from="scent_timer" to="." method="_on_scent_timer_timeout"]
+[connection signal="timeout" from="scent_timeout_timer" to="." method="_on_scent_timeout_timer_timeout"]
+[connection signal="timeout" from="cc_timer" to="." method="_on_cc_timer_timeout"]

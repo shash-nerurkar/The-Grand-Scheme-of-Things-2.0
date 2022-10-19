@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gemcave.wav-948f90534d5db80c962ce407761ef96c.sample"
+
+[deps]
+
+source_file="res://music/gemcave.wav"
+dest_files=[ "res://.import/gemcave.wav-948f90534d5db80c962ce407761ef96c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

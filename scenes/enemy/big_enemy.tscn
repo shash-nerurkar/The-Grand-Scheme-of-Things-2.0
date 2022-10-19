@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/big_enemy.gd" type="Script" id=52]
+[ext_resource path="res://art/enemies/timer_full.png" type="Texture" id=68]
+[ext_resource path="res://art/enemies/health_bar.png" type="Texture" id=71]
+[ext_resource path="res://art/enemies/health_bar_over.png" type="Texture" id=74]
+[ext_resource path="res://art/enemies/timer.png" type="Texture" id=75]
+[ext_resource path="res://art/enemies/health_bar_under.png" type="Texture" id=80]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.6, 2.3 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 21.684
+
+[sub_resource type="Animation" id=3]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="enemy" type="KinematicBody2D" groups=[
+"enemies",
+]]
+visible = false
+collision_layer = 2
+collision_mask = 19
+script = ExtResource( 52 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 12.373, 36.222 )
+shape = SubResource( 1 )
+
+[node name="inner_coll" type="Area2D" parent="." groups=[
+"enemy_inner",
+]]
+position = Vector2( 1.5519, -0.174828 )
+collision_layer = 64
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inner_coll"]
+position = Vector2( -7.19475, -6.14551 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="damage" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 3 )
+
+[node name="player_ray" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 10000, 0 )
+collision_mask = 145
+
+[node name="health_bar" type="TextureProgress" parent="."]
+margin_left = -24.6882
+margin_top = -36.1803
+margin_right = -6.68816
+margin_bottom = -33.1803
+rect_scale = Vector2( 3, 1 )
+texture_under = ExtResource( 80 )
+texture_over = ExtResource( 74 )
+texture_progress = ExtResource( 71 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cooldown_indicator" type="TextureProgress" parent="."]
+show_behind_parent = true
+margin_left = -0.844383
+margin_top = 31.9722
+margin_right = 399.156
+margin_bottom = 151.973
+rect_scale = Vector2( 0.07, 0.07 )
+step = 0.001
+texture_under = ExtResource( 75 )
+texture_progress = ExtResource( 68 )
+fill_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="laser_ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 27.9077, 0.825796 )
+enabled = true
+cast_to = Vector2( 10000, 0 )
+collision_mask = 16
+
+[node name="bullet_container" type="Node" parent="."]
+
+[node name="cooldown_timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="cc_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="muzzle" type="Position2D" parent="."]
+[connection signal="animation_finished" from="sprite" to="." method="_on_mughal_mongol_animation_finished"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="cc_timer" to="." method="_on_cc_timer_timeout"]

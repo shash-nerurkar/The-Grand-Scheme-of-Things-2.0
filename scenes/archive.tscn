@@ -1,0 +1,317 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://art/archive/opening_4.png" type="Texture" id=1]
+[ext_resource path="res://art/archive/opening_6.png" type="Texture" id=2]
+[ext_resource path="res://art/archive/opening_2.png" type="Texture" id=3]
+[ext_resource path="res://art/archive/opening_5.png" type="Texture" id=4]
+[ext_resource path="res://art/archive/opening_7.png" type="Texture" id=5]
+[ext_resource path="res://art/archive/opening_1.png" type="Texture" id=6]
+[ext_resource path="res://art/archive/opening_3.png" type="Texture" id=7]
+[ext_resource path="res://art/archive/opening_8.png" type="Texture" id=8]
+[ext_resource path="res://art/archive/opening_9.png" type="Texture" id=9]
+[ext_resource path="res://art/archive/opening_10.png" type="Texture" id=10]
+[ext_resource path="res://art/archive/opening_19.png" type="Texture" id=11]
+[ext_resource path="res://art/archive/opening_12.png" type="Texture" id=12]
+[ext_resource path="res://art/archive/opening_18.png" type="Texture" id=13]
+[ext_resource path="res://art/archive/opening_11.png" type="Texture" id=14]
+[ext_resource path="res://art/archive/opening_16.png" type="Texture" id=15]
+[ext_resource path="res://art/archive/opening_15.png" type="Texture" id=16]
+[ext_resource path="res://art/archive/opening_13.png" type="Texture" id=17]
+[ext_resource path="res://art/archive/opening_17.png" type="Texture" id=18]
+[ext_resource path="res://scripts/archive.gd" type="Script" id=19]
+[ext_resource path="res://art/archive/armory.png" type="Texture" id=20]
+[ext_resource path="res://art/archive/realms.png" type="Texture" id=21]
+[ext_resource path="res://art/archive/bosses.png" type="Texture" id=22]
+[ext_resource path="res://art/archive/enemies.png" type="Texture" id=23]
+[ext_resource path="res://art/archive/opening_14.png" type="Texture" id=24]
+[ext_resource path="res://art/archive/element.png" type="Texture" id=25]
+[ext_resource path="res://art/archive/back.png" type="Texture" id=26]
+[ext_resource path="res://fonts/novem___.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://art/HUD assets/exclamation.png" type="Texture" id=28]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "close",
+"speed": 35.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "open",
+"speed": 35.0
+} ]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 80, 120 )
+
+[sub_resource type="AnimatedTexture" id=3]
+fps = 5.0
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 27 )
+
+[node name="Control" type="Control" groups=[
+"persist",
+]]
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="AnimatedSprite" parent="."]
+position = Vector2( 42.6479, 36.4785 )
+scale = Vector2( 11.8787, 8.62705 )
+frames = SubResource( 1 )
+animation = "open"
+centered = false
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 109.0
+margin_top = 101.0
+margin_right = 911.0
+margin_bottom = 536.0
+custom_constants/vseparation = 28
+custom_constants/hseparation = 28
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemies" type="TextureButton" parent="GridContainer"]
+margin_right = 387.0
+margin_bottom = 203.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 23 )
+expand = true
+
+[node name="exclamation" type="TextureRect" parent="GridContainer/enemies"]
+visible = false
+margin_left = 328.81
+margin_top = 10.772
+margin_right = 368.81
+margin_bottom = 50.772
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bosses" type="TextureButton" parent="GridContainer"]
+margin_left = 415.0
+margin_right = 802.0
+margin_bottom = 203.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 22 )
+expand = true
+
+[node name="exclamation" type="TextureRect" parent="GridContainer/bosses"]
+visible = false
+margin_left = 329.324
+margin_top = 11.88
+margin_right = 369.324
+margin_bottom = 51.88
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levels" type="TextureButton" parent="GridContainer"]
+margin_top = 231.0
+margin_right = 387.0
+margin_bottom = 434.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 21 )
+expand = true
+
+[node name="exclamation" type="TextureRect" parent="GridContainer/levels"]
+visible = false
+margin_left = 333.242
+margin_top = 13.5679
+margin_right = 373.242
+margin_bottom = 53.5679
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="armory" type="TextureButton" parent="GridContainer"]
+margin_left = 415.0
+margin_top = 231.0
+margin_right = 802.0
+margin_bottom = 434.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 20 )
+expand = true
+
+[node name="exclamation" type="TextureRect" parent="GridContainer/armory"]
+visible = false
+margin_left = 326.0
+margin_top = 18.0
+margin_right = 366.0
+margin_bottom = 58.0
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+margin_left = 86.0
+margin_top = 81.0
+margin_right = 929.0
+margin_bottom = 547.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+margin_right = 503.0
+margin_bottom = 466.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+scroll_horizontal_enabled = false
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer"]
+margin_left = 251.0
+margin_right = 251.0
+margin_bottom = 466.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+margin_left = 507.0
+margin_right = 843.0
+margin_bottom = 466.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = 9.0
+margin_right = -9.0
+margin_bottom = -9.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="TextureRect" parent="HBoxContainer/Panel/VBoxContainer"]
+visible = false
+margin_right = 316.0
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
+margin_right = 316.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+valign = 1
+autowrap = true
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Panel/VBoxContainer"]
+margin_top = 226.0
+margin_right = 316.0
+margin_bottom = 448.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="Type" type="Label" parent="HBoxContainer/Panel/VBoxContainer/GridContainer"]
+margin_right = 156.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Health" type="Label" parent="HBoxContainer/Panel/VBoxContainer/GridContainer"]
+margin_left = 160.0
+margin_right = 316.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Damage" type="Label" parent="HBoxContainer/Panel/VBoxContainer/GridContainer"]
+margin_top = 113.0
+margin_right = 156.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Attack_speed" type="Label" parent="HBoxContainer/Panel/VBoxContainer/GridContainer"]
+margin_left = 160.0
+margin_top = 113.0
+margin_right = 316.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 8 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="back_button" type="TextureButton" parent="."]
+visible = false
+margin_left = 815.9
+margin_top = 11.5999
+margin_right = 941.9
+margin_bottom = 72.5999
+texture_normal = ExtResource( 26 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="panel" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="pressed" from="GridContainer/enemies" to="." method="_on_enemies_pressed"]
+[connection signal="pressed" from="GridContainer/bosses" to="." method="_on_bosses_pressed"]
+[connection signal="pressed" from="GridContainer/levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="GridContainer/armory" to="." method="_on_armory_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
